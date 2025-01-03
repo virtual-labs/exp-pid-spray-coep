@@ -2112,7 +2112,7 @@ particles = [];
 
     var flowMeter_img ,  Pipe_img;
 function electromagneticFlowMeter(x,y){
- flowMeter_img = paper.image("images/electroMagneticFlowMeter.png", (x + 308), (y + 338), 60, 60).toFront();
+ flowMeter_img = paper.image("images/electromagneticFlowMeter.png", (x + 308), (y + 338), 60, 60).toFront();
  Pipe_img = paper.image("images/pipe.png", (x + 310), (y + 380), 60, 45).toFront();
 }
 
