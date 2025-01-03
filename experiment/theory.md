@@ -82,7 +82,7 @@ Three general types of atomizers are available. These are
 	
 ###### Ultrasonic automizers are also used in some special applications.
 
-![*Atomizer*](images/Atomizer.png)
+![*Atomization*](images/Atomization.png)
 
 ###### Spray-Air Mixing
 There are three basic types of spray drying processes depending on air-droplet contact systems
@@ -101,7 +101,7 @@ Co-current contact occurs when the droplets fall down the chamber with the air o
 Counter-current contact is achieved when the drying air flows in opposite direction to the falling droplets. It is used for more heat sensitive materials that require coarse particles or special porosity or high bulk density. Nozzle atomization is usually used. The material is sprayed in the opposite direction of hot air. The hot air flows upwards and the product falls through increasingly hot air into the collection tray. The residual moisture is eliminated and the product becomes very hot. This method is suitable only for thermally stable products. The final product temperature is higher than that of the exit air. This type
 is of drying commonly used for quite larger particle sizes ranging from 400_m to 600_m diameter. General examples are tea powder and some pharmaceutical drugs etc.
 
-![*Counter_color_flow*](images/Counter_color_flow.png)
+![*Counter_color_flow*](images/Counter_color_flow.JPG)
 
 ###### Rotary
 In Rotary Disk type atomizer the material to be sprayed flows into a high speed rotating atomizing disk and is converted to a _ne mist. The drying air flows in the same direction. The product is treated just as in the co-current flow method. This type is of drying commonly used for larger particle sizes ranging from 1 to 5 mm diameter granular products like detergent powder, fertilizers etc.
