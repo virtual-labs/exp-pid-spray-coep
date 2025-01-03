@@ -1,0 +1,43 @@
+.form-select{
+	padding:10px;margin:5px;
+}
+.statement{
+border-style: double;
+    padding: 20px;
+    margin: 10px;
+    font-size: larger;
+    border-radius: 25px;
+    box-shadow: blue;
+    box-shadow: 13px 10px #ced4da;
+    margin-bottom: 30px;
+
+}
+.conf{
+	    border-style: double;
+    padding: 9px;
+    margin: 9px;
+    font-size: medium;
+    border-radius: 0px;
+    box-shadow: blue;
+    box-shadow: 7px 5px #ced4da;
+    margin-bottom: 30px;
+	
+	
+}
+.titlePart{
+font-size: larger;
+    font-weight: 700;
+    background-color: #343a40;
+    margin: 5px;
+    padding: 15px;
+    color: #fff;
+    border-style: solid;
+    border-color: aqua;
+   
+}
+.subTitle{
+/* 	font-weight: bolder; */
+ 
+    color: #dc3545;
+	
+}   
