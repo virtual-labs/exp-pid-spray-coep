@@ -1,21 +1,31 @@
+var dataJson={};
+var startCount=0;
+var datasheetCount=0;
+var trendsCount=0;
+
 function spryerDryerMimic(){
 	
 	
-	$("#Header").html("	<center><span >MIMIC</span></center>");
+	$("#Header").html("	<center><span >SIMULATION</span></center>");
 	
 	htm=''
 		+'<div class="row titlePart"  style="border-style: unset;padding:7px;">'
 		+'<center><span >PROCESS MONITORING PANEL</span></center>'
 		+'</div>'
 		+'<div class="row">'
-		+'<div class="col-sm-3">'
+		+'<div class="col-sm-6">'
 		+'<button id="startBtn" class="btn btn-danger" style="width:100%" data-toggle="modal" data-target="#myModal1">Start</button>'
 		+'</div>'
-		+'<div class="col-sm-3">'
+		+'<div class="col-sm-6">'
 		+'<button id="reset" class="btn btn-danger" style="width:100%" disabled>Reset</button>'
 		+'</div>'
+		+'</div>'
+		+'<div class="row">'
 		+'<div class="col-sm-6">'
-		+'<button id="datasheet" class="btn btn-danger" style="width:100%" disabled>View Datasheet</button>'
+		+'<button id="datasheet" class="btn btn-danger" style="width:100%;margin-top:10px;" disabled>View Datasheet</button>'
+		+'</div>'
+		+'<div class="col-sm-6">'
+		+'<button type="button" class="btn btn-danger"  id="graph" style="margin-top:10px;width:100%" data-toggle="modal" data-target="#modalTrends" disabled>Trends </button>'
 		+'</div>'
 		+'</div>'
 		+'<div class="row titlePart"  style="border-style: unset;padding:7px;">'
@@ -26,11 +36,7 @@ function spryerDryerMimic(){
 		+'<div class="row conf" >'
 		+'<table class="table table-bordered">'
 		+' <thead>'
-//		+'  <tr>'
-//		+'    <th>Firstname</th>'
-//		+'   <th>Lastname</th>'
-//		+'    <th>Email</th>'
-//		+' </tr>'
+
 		+'</thead>'
 		+'<tbody>'
 		+' <tr>'
@@ -38,7 +44,7 @@ function spryerDryerMimic(){
 		+'   <td><label class="PMCValue" id="ft">0</label>m/s</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>Hot Air Temperature (TT01) :</b></label></td>'
+		+' <td><label><b>Hot Air Temperature (TT01) : </b></label></td>'
 		+' <td><label class="PMCValue" id="tt1">0</label>°C</td>'
 		+'  </tr>'
 		+'  <tr>'
@@ -71,7 +77,7 @@ function spryerDryerMimic(){
 
 		+'</div>'
 		+'<div class="col-sm-12">'
-		+'<button type="button" class="btn btn-danger"  id="sprayDryerPost" style="margin-top:10px;width:100%" >Next level </button>'
+		+'<button type="button" class="btn btn-danger"  id="btnResult" style="margin-top:10px;width:100%" disabled >RESULT</button>'
 		+'</div>'
 		
 		
@@ -99,38 +105,47 @@ function spryerDryerMimic(){
 +'</div>'  
 +'<!-- End Modal -->'
 		
-//		//		+'	  <!-- The Modal -->'
-//		+'  <div class="modal fade " id="myModal1">'
-//		+'    <div class="modal-dialog " id="modelDialog1">'
-//		+'	      <div class="modal-content">'
-////		+'	        <!-- Modal Header -->'
-//		+'	        <div class="modal-header">'
-//		+'	          <h4 class="modal-title"><center id="modelTitle1"></center></h4>'
-//		+'	          <button type="button" class="close" data-dismiss="modal">&times;</button>'
-//		+'	        </div>'
-////		+'	        <!-- Modal body -->'
-//		+'	        <div class="modal-body" id="modelBody1">'
-//		
-//		+'	        </div>'
-////		+'	        <!-- Modal footer -->'
-//		+'	        <div class="modal-footer">'
+		//		+'	  <!-- The Modal -->'
+		+'  <div class="modal fade " id="modalTrends">'
+		+'    <div class="modal-dialog modal-xl " id="modelDialog1">'
+		+'	      <div class="modal-content">'
+//		+'	        <!-- Modal Header -->'
+		+'	        <div class="modal-header">'
+		+'	          <h4 class="modal-title"><center id="modelTitle1"></center></h4>'
+		+'	          <button type="button" class="close" data-dismiss="modal">&times;</button>'
+		+'	        </div>'
+//		+'	        <!-- Modal body -->'
+		+'	        <div class="modal-body" id="bodyTrends">'
+		
+		+'	        </div>'
+//		+'	        <!-- Modal footer -->'
+		+'	        <div class="modal-footer">'
+		+'       <button type="button" class="btn btn-danger"  id="download" style="margin-top:10px;float: right;" hidden>Download </button>'
 //		+'	          <button type="button" class="btn btn-danger" data-dismiss="modal" >Ok</button>'
-//		+'	        </div>'
-//		+'	      </div>'
-//		+'	    </div>'
-//		+'	  </div>'
-////		+'	  <!-- End Modal -->'
+		+'	        </div>'
+		+'	      </div>'
+		+'	    </div>'
+		+'	  </div>'
+//		+'	  <!-- End Modal -->'
 	
 	$("#Selection").html(htm);
 	
 	
 	spryerDryermimicDiagram();
 	
-	$("#sprayDryerPost").click(function(){
-		
-		spryerDryerPostQuestion();
-		
+	$("#graph").click(function(){
+		spryerDryerPostQuestion(dataJson);
+		trendsCount++;
 	});
+	
+	$("#btnResult").click(function(){
+		resultJson.animationStart=startCount;
+		resultJson.datasheet=datasheetCount;
+		resultJson.trends=trendsCount;
+		console.log(resultJson);
+		result();
+	});
+	
 	
 	$("#reset").click(function(){
 		
@@ -151,6 +166,7 @@ function spryerDryerMimic(){
 	    document.body.appendChild(link); 
 	    link.click(); 
 	    document.body.removeChild(link);
+	    datasheetCount++;
 		});
 }
 
@@ -250,16 +266,18 @@ paper.setSize('100%', '100%');
 //	paper.setSize('94%', '100%');
 //}
 
-var dataJson = {
+ dataJson = {
 "TT01": [22,22,22,22,22,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,45,50,55,60,70,80,90,100,110,120,120,120,120,120,120,120,120,120,120,120,120,119,118,117,115,113,110,112,114,116,118,120,122,124,126,128,130,130,130,130,130,130,130,129,128,129,130,130,130,130,130,130,130,132,131,130,130,130,130,131,132,133,134,135,134,135,134,133,132,131,130,130,130,131,132,133,132,131,131,131,131,130,130,130,130,130,130,130,130,131,132,132,131,132,133,132,130,125,110,100,90,80,75,70,65,62,61],
 "TT02": [20,20,20,20,20,20,20,20,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,40,43,46,50,52,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,68,66,64,62,62,63,64,65,66,67,68,69,70,70,70,70,70,70,70,70,70,68,66,66,66,66,66,66,66,66,67,67,66,66,66,66,67,68,69,70,71,71,71,71,70,70,69,69,69,68,69,69,70,70,70,70,70,69,69,69,69,69,69,69,69,69,69,69,71,71,71,72,71,70,67,63,61,55,49,45,43,41,40,40],
 "FT": [0,0,0,0,0,0,0,0.00216,0.00252,0.00288,0.00324,0.0036,0.00396,0.00432,0.00468,0.0054,0.00612,0.009,0.0108,0.0126,0.0144,0.0162,0.01692,0.01764,0.01872,0.02016,0.0216,0.0234,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.02412,0.02376,0.0234,0.02304,0.02268,0.02232,0.02196,0.0216,0.02124,0.02088,0.02052,0.02016,0.0198,0.01944,0.01908,0.01872,0.01836,0.018,0.01764,0.01728,0.0144,0.0108,0.0108,0.0108,0.0108,0.0108,0.0108,0.0072,0.0036,0,0,0,0,0],
-"NT": [0,0,0,0,0,0,0,2.01,2.68,3.35,4.02,4.69,5.36,6.03,6.7,7.37,8.04,8.71,13.4,16.75,20.1,23.45,25.46,27.47,29.48,32.16,34.84,37.52,40.2,42.88,44.22,45.56,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,47.57,46.9,47.57,47.57,47.57,47.57,47.57,47.57,47.57,47.57,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.9,46.23,46.23,45.56,44.89,44.22,43.818,43.282,42.746,42.21,41.674,41.138,40.602,40.066,39.53,38.994,38.458,37.922,37.386,36.85,30.15,23.45,23.45,23.45,23.45,23.45,23.45,16.75,10.05,6.7,5.36,4.02,2.68,0],
+"NT": [0,0,0,0,0,0,0,-2.01,-2.68,-3.35,-4.02,-4.69,-5.36,-6.03,-6.7,-7.37,-8.04,-8.71,-13.4,-16.75,-20.1,-23.45,-25.46,-27.47,-29.48,-32.16,-34.84,-37.52,-40.2,-42.88,-44.22,-45.56,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-47.57,-46.9,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.23,-46.23,-45.56,-44.89,-44.22,-43.818,-43.282,-42.746,-42.21,-41.674,-41.138,-40.602,-40.066,-39.53,-38.994,-38.458,-37.922,-37.386,-36.85,-30.15,-23.45,-23.45,-23.45,-23.45,-23.45,-23.45,-16.75,-10.05,-6.7,-5.36,-4.02,-2.68,0],
 "P1_SPEED": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,7,9,11,12,13,14,15,16,17,18,19,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,65,65,70,69,68,67,66,65,64,63,62,61,60,61,62,63,68,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,50,45,40,35,30,25,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0],
 "FD_SPEEDPer": [0,0,0,0,0,0,5,6,7,8,9,10,11,12,13,15,17,25,30,35,40,45,47,49,52,56,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,40,30,30,30,30,30,30,20,10,0,0,0,0,0],
 "ID_SPEEDPer": [0,0,0,0,0,0,2,3,4,5,6,7,8,9,10,11,12,13,20,25,30,35,38,41,44,48,52,56,60,64,66,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,70,71,71,71,71,71,71,71,71,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,69,68,67,66,65.4,64.6,63.8,63,62.2,61.4,60.6,59.8,59,58.2,57.4,56.6,55.8,55,45,35,35,35,35,35,35,25,15,10,8,6,4,0],
-"HeaterPer": [0,0,0,5,6,7,8,9,10,11,12,13,14,15,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,72,73,74,75,76,77,77,77,77,77,77,75,73,71,70,70,70,70,70,70,70,70,72,71,70,70,70,70,70,70,70,70,68,70,70,70,70,70,69,68,67,66,65,64,63,64,65,65,65,65,65,65,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,44,35,25,0,0,0,0,0,0,0,0,0,0,0]
+"HeaterPer": [0,0,0,5,6,7,8,9,10,11,12,13,14,15,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,72,73,74,75,76,77,77,77,77,77,77,75,73,71,70,70,70,70,70,70,70,70,72,71,70,70,70,70,70,70,70,70,68,70,70,70,70,70,69,68,67,66,65,64,63,64,65,65,65,65,65,65,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,44,35,25,0,0,0,0,0,0,0,0,0,0,0],
+"time":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130]
 }
+console.log(dataJson);
 
 var x = 10, y = 50;
 var overAllDelay = 0;
@@ -551,7 +569,7 @@ var r = 360;
 	
 	    fdFan_img.animate(
 	        { 'transform': 'r' + 360 }, // Rotate 360 degrees
-	        1200, // Duration of rotation
+	        time, // Duration of rotation
 	        function () {
 	            fdFan_img.attr({ transform: '' }); // Reset transformation to keep animation smooth
 	            rotateInfinite(); // Call the function again for infinite rotation
@@ -734,7 +752,7 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
      $("#ft").text(dataJson.FT[i]);
      $("#tt1").text(dataJson.TT01[i]);
      $("#tt2").text(dataJson.TT02[i]);
-//     $("#nt").text(dataJson.NT[i]);
+     $("#nt").text(dataJson.NT[i]);
      $("#hf").text(dataJson.HeaterPer[i]);
      $("#pump").text(dataJson.P1_SPEED[i]);
      $("#fdfan").text(dataJson.FD_SPEEDPer[i]);
@@ -746,14 +764,17 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
    fdFanValTxt = paper.text(x+193,y+475,dataJson.FD_SPEEDPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
    ftValTxt = paper.text(x+342.5,y+456,dataJson.FT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
    heaterValTxt = paper.text(x+335,y+253.5,dataJson.HeaterPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
-   if(dataJson.NT[i] > 0){ 
-	$("#nt").text("-"+dataJson.NT[i]);
-   ntValTxt = paper.text(x+830,y+218.6,"-"+dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
-   }else{
-	$("#nt").text(dataJson.NT[i]);
-    ntValTxt = paper.text(x+830,y+218.6,dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+ ntValTxt = paper.text(x+830,y+218.6,dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
 
-   }
+   
+//   if(dataJson.NT[i] > 0){ 
+//	$("#nt").text("-"+dataJson.NT[i]);
+//   ntValTxt = paper.text(x+830,y+218.6,"-"+dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+//   }else{
+//	$("#nt").text(dataJson.NT[i]);
+//    ntValTxt = paper.text(x+830,y+218.6,dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+//
+//   }
    idFanValTxt = paper.text(x+1090,y+423,dataJson.ID_SPEEDPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
       
        if (i === 15) {
@@ -797,7 +818,7 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
    }
    
   
-}, i*2500); // Delay increases with each iteration - later 2500 final
+}, i*(time*2.5)); // Delay increases with each iteration - later 2500 final
 
 	
 }
@@ -911,7 +932,7 @@ function stopProcessInLoop(){
 																 offFan_on.remove();
                        offFan_img1 = paper.image("images/offMotor.png", (x + 1080), (y + 287), 50, 30).toFront();
                       											shOff.toFront(); 	
-                      											$("#datasheet").prop("disabled",false); 
+                      											$("#datasheet,#graph,#btnResult").prop("disabled",false); 
                       											$("#reset").prop("disabled",false);
                       											$("#startBtn").prop("disabled",true); 				
 														 }, time * 2); 	
@@ -1028,11 +1049,17 @@ if (step < 100) {
  var offFan_on;
 
  document.getElementById("startBtn").addEventListener("click", function () {
+	 startCount++;
   // Configure and show the modal
-  $("#modelDialog1").addClass("modal-md");
+  $("#modelDialog1").addClass("modal-lg");
   $("#modelTitle1").html("Check the Components");
-  $("#modelBody1").html("<b>Before starting the plant check whether<br>- All valves are closed <br>- All pumps are switched off<br>- The instrument air, electricity and other required utilities are available <br>- The production schedule mandates to produce and raw material is available</b>");
-  $("#modelBody1").css("color", "#f54545");
+  $("#modelBody1").html("<b>Before starting the plant check whether<br>- All valves are closed <br>- All pumps are switched off<br>- The instrument air, electricity and other required utilities are available <br>- The production schedule mandates to produce and <br>- Raw material is available</b>");
+  $("#modelBody1").css({
+	            'font-weight': '500',            // Add padding
+	            'font-family': 'math',       // Font style
+	            'font-size': '16px',          // Font size
+	            'color': '#0c55a3'               // Text color
+	        });
 
   $("#reset").prop("disabled",false);
   $("#startBtn").prop("disabled",true);
@@ -2112,7 +2139,7 @@ particles = [];
 
     var flowMeter_img ,  Pipe_img;
 function electromagneticFlowMeter(x,y){
- flowMeter_img = paper.image("images/electromagneticFlowMeter.png", (x + 308), (y + 338), 60, 60).toFront();
+ flowMeter_img = paper.image("images/electroMagneticFlowMeter.png", (x + 308), (y + 338), 60, 60).toFront();
  Pipe_img = paper.image("images/pipe.png", (x + 310), (y + 380), 60, 45).toFront();
 }
 
