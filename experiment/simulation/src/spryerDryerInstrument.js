@@ -36,6 +36,7 @@ var vfd;
 var plc;
 var scr;
 var totalComp1;
+var instrActualCount=0;
 function spryerDryerInstrument()
 {
 	$("#Header").html("	<center><span >SPRAY DRYER - INSTRUMENT DIAGRAM</span></center>");
@@ -101,7 +102,7 @@ function spryerDryerInstrument()
 		
 		
 		+'<div class="col-sm-12">'
-		+'<button type="button" class="btn btn-danger"  id="verifyInstr" style="margin-top:10px;width:100%" data-toggle="modal" data-target="#myModal1" tabindex="12">Verify Instrument </button>'
+		+'<button type="button" class="btn btn-danger"  id="verifyInstr" style="margin-top:10px;width:100%" data-toggle="modal" data-target="#myModal1" tabindex="12">Verify Instruments </button>'
 		
 //		+'	  <!-- The Modal -->'
 		+'  <div class="modal fade " id="myModal1">'
@@ -137,6 +138,7 @@ function spryerDryerInstrument()
 	   var percentage1=0;
 	   var flag=0;
 	$("#verifyInstr").click(function(){
+		instrActualCount++;
 		percentage1=0;
 		 ft=parseInt($("#ft").val());
 		 tt=parseInt($("#tt").val());
@@ -268,6 +270,7 @@ function spryerDryerInstrument()
 						+"<img src='images/sprayDryerImg.png' class='img-fluid' style='border-style: double;border-color: black;'>"
 						 $("#modelBody1").html(htm);
 						  $("#modelBody1").css("color","red"); 
+						 
 				  }
 				  else
 					  {
@@ -289,7 +292,7 @@ function spryerDryerInstrument()
 			 $("#modelTitle1").html("Message box");
 			 $("#modelBody1").html("<b>Click on 'Next level' button.</b>");
 			$("#modelBody1").css("color","green");
-			$("#ft,#tshh,#pshh,#psll,#plc,#vfd,#vi,#pi,#tt,#afr,#verifyInstr").prop("disabled",true);
+			$("#ft,#tshh,#pshh,#psll,#plc,#vfd,#vi,#pi,#tt,#afr,#scr,#verifyInstr").prop("disabled",true);
 			addToMasterJson();
 		
 			flag=1;
@@ -311,8 +314,6 @@ function spryerDryerInstrument()
 				$("#nextLevel2").prop("hidden",false);
 		}
 		else{
-			
-			
 			
 			 perFTCount=parseFloat((ft*100)/StdFTCount);
 			 perTTCount=parseFloat((tt*100)/StdTTCount);
@@ -362,6 +363,7 @@ function spryerDryerInstrument()
 							 $("#modelBody1").html("<b>More components than expected. </b>");
 						}
 					}
+			
 				
 		}
 		
@@ -384,6 +386,8 @@ function spryerDryerInstrument()
 				
 		InstrMasterJson.Instrument=tempMasterJsonInstr;
 		console.log(InstrMasterJson);
+		resultJson.instrument=instrActualCount;
+		console.log(resultJson);
 	}
 	$("#nextLevel2").click(function(){
 		if(flag==1){

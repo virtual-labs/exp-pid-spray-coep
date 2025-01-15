@@ -4,6 +4,9 @@
   background: red;
  
 }
+html {
+    scroll-behavior: smooth;
+}
 .droppable {
   width: 150px;
   height: 150px;
@@ -325,7 +328,7 @@ background: linear-gradient(90deg, rgba(125,176,169,1) 0%, rgba(78,109,114,1) 31
 	font-size:20px;color:green;
 }
 .modal-header{
-background-color: cadetblue;
+background-color: #343a40;
     color: #fff;
 }
 .PMCValue{
@@ -341,4 +344,10 @@ background-color: cadetblue;
 	    font-size: 10px;
 	    margin-left:5px;
     font-family: inherit;
+}
+
+#simDemo,#nextLevel1,#verifyComponents,#verifyInstr,#nextLevel2,#verifyButton,#startBtn,#reset,#datasheet,#graph,#procedure{
+    border-color: teal;
+    background-color: teal;
+
 }

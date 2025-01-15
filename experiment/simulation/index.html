@@ -4,23 +4,29 @@
 <title>Spray Dryer</title>
 </head>
  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href= "https://code.jquery.com/ui/1.13.0/themes/dark-hive/jquery-ui.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity= "sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"> 
  </script>
+ 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
   <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   
+<!--   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/toastr.min.css">
 <link rel="stylesheet" href="css/question.css">
 <link rel="stylesheet" href="css/pageStyle.css">
 <link rel="stylesheet" href="css/dryer.css">
+<link rel="stylesheet" href="css/result.css">
 <style>
 
 #coepLogo,#vlabLogo{
@@ -40,15 +46,17 @@
 	    <span id="colgName">COEP TECHNOLOGICAL UNIVERSITY PUNE</span>	
 			
 	</header>
-	<div class="row container-fluid " id="landingPage">
-	<div  class="col-sm-12 " > 
-	</div>
-	</div>
+<!-- 	<div class="row container-fluid " id="landingPage"> -->
+<!-- 	<div  class="col-sm-12 " >  -->
+<!-- 	</div> -->
+<!-- 	</div> -->
 	<div  class="row container-fluid" id="buttonDiv" >	
 		<div  class="col-sm-12" > 
 <!-- 			<button type="button" id="saveAsJpg" class="btn btn-danger btn1" data-dismiss="modal" data-target="#problemstr"><b>Problem statement</b></button>	 -->
 	        <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#proStr"><b>Problem statement</b> </button>
-<!-- 		    <button type="button" id="btnForModal" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#myModal1"><b>Procedure </b></button> -->
+		    <button type="button" id="procedure" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#proStr"><b>Procedure </b></button>
+<!-- 	   <button type="button" class="btn btn-danger"  id="btnResult" style="margin-top:10px;"  >Next level </button> -->
+	
 	     </div>
 	     
 	   
@@ -68,7 +76,7 @@
 			        </div>
 <!-- 			        Modal footer -->
 			        <div class="modal-footer">
-		             <button type="button" class="btn btn-danger" data-dismiss="modal" >Ok</button>
+<!-- 		             <button type="button" class="btn btn-danger" data-dismiss="modal" >Ok</button> -->
 			        </div>
 			      </div>
 			    </div>
@@ -90,6 +98,9 @@
 	    	</div>
 	  	 </div>
 	</div>
+<!-- 	<div  class="container-fluid resultMainPage" id="main-divResult" style="margin-bottom:60px;margin-top:37px;" hidden> -->
+
+<!-- 	</div> -->
 <footer>
 Copyrights &copy; COEPTECH - Virtual Labs
 </footer>
@@ -103,9 +114,26 @@ Copyrights &copy; COEPTECH - Virtual Labs
    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Highcharts JS -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/stock-tools.js"></script>
+    
+   
+<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+  <!-- Highcharts and jQuery -->
+ 
+    
+    <script src="https://code.highcharts.com/themes/dark-unica.js"></script>
 <!-- <script src="src/landingPage.js"></script> -->
 <script src="src/popupData.js"></script>
 <script src="src/stdJson.js"></script>
+<script type="text/javascript" src="js/toastr.min.js"></script>
 <script src="src/questionJson.js"></script>
 
 <!-- Plant 1- SpryerDryer -->
@@ -114,32 +142,40 @@ Copyrights &copy; COEPTECH - Virtual Labs
 <script src="src/spryerDryerPreQuestion.js"></script>
 <script src="src/spryerDryerMimic.js"></script>
 <script src="src/spryerDryerPostQuestion.js"></script>
-<!-- Plant 1- DistillationColumn -->
-<!-- <script src="src/DistillationColumn/DistillationColumnPiping.js"></script> -->
-<!-- <script src="src/DistillationColumn/DistillationColumnInstrument.js"></script> -->
-<!-- <script src="src/DistillationColumn/DistillationColumnPreQuestion.js"></script> -->
-<!-- <script src="src/DistillationColumn/DistillationColumnMimic.js"></script> -->
-<!-- <script src="src/DistillationColumn/DistillationColumnPostQuestion.js"></script> -->
-<!-- Plant 2- BoilerHeatExchanger -->
-<!-- <script src="src/BoilerHeatExchanger/BoilerHeatExchangerPiping.js"></script> -->
-<!-- <script src="src/BoilerHeatExchanger/BoilerHeatExchangerInstrument.js"></script> -->
-<!-- <script src="src/BoilerHeatExchanger/BoilerHeatExchangerMimic.js"></script> -->
-<!-- <script src="src/BoilerHeatExchanger/BoilerHeatExchangerPreQuestion.js"></script> -->
-<!-- <script src="src/BoilerHeatExchanger/BoilerHeatExchangerPostQuestion.js"></script> -->
-<!-- Plant 3- Batch process and bottle filling -->
-<!-- <script src="src/BatchProcessBottleFillingPiping.js"></script> -->
-<!-- <script src="src/BatchProcessBottleFillingInstrument.js"></script> -->
-<!-- <script src="src/BatchProcessBottleFillingMimic.js"></script> -->
-<!-- <script src="src/BatchProcessBottleFillingPreQuestion.js"></script> -->
-<!-- <script src="src/BatchProcessBottleFillingPostQuestion.js"></script> -->
+<script src="src/result.js"></script>
+
 
 
 <script>
+
 $( document ).ready(function() {
+	
+	  
 	spryerDryerComponent();
 });
 </script>
-
+<script>
+toastr.options = {
+        'closeButton': true,
+        'debug': false,
+        'newestOnTop': false,
+        'progressBar': false,
+        'positionClass': 'toast-bottom-right',
+        'preventDuplicates': false,
+        'showDuration': '1000',
+        'hideDuration': '1000',
+        'timeOut': '5000',
+        'extendedTimeOut': '1000',
+        'showEasing': 'swing',
+        'hideEasing': 'linear',
+        'showMethod': 'fadeIn',
+        'hideMethod': 'fadeOut',
+        'margin-bottom':'50%'
+    }
+     
+    
+     
+</script>
 <script >
 $("#coepLogo").click(function(evt) {
 	
