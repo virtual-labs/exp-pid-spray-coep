@@ -39,6 +39,10 @@ var totalComp1;
 var instrActualCount=0;
 function spryerDryerInstrument()
 {
+	timerMasterJson.piping=$("#counter").text();
+	console.log(timerMasterJson);
+	seconds = 0;
+	  updateCounter();
 	$("#Header").html("	<center><span >SPRAY DRYER - INSTRUMENT DIAGRAM</span></center>");
 	$("#Selection").css({"overflow": "auto","height":" 837px"});
 	htm=''

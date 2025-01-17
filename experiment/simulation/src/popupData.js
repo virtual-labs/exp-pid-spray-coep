@@ -1,4 +1,5 @@
 $("#simDemo").click(function () {
+	$("#modalTitle").html("PROBLEM STATEMENT");
 	 $("#modelDialog").removeClass("modal-md");
 	 $("#modelDialog").addClass("modal-xl");
 	htm=''
@@ -19,6 +20,9 @@ $("#simDemo").click(function () {
 	$("#proStrBody").html(htm);
 });
 	$("#procedure").click(function () {
+		 $("#modelDialog").removeClass("modal-xl");
+		 $("#modelDialog").addClass("modal-md");
+		$("#modalTitle").html("PROCEDURE");
 		htm=''
 			+' '
 		$("#proStrBody").html(htm);

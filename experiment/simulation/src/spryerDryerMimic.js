@@ -2,10 +2,16 @@ var dataJson={};
 var startCount=0;
 var datasheetCount=0;
 var trendsCount=0;
+var selectedValue=1400;
+
 
 function spryerDryerMimic(){
 	
-	
+	timerMasterJson.squences=$("#counter").text();
+	console.log(timerMasterJson);
+	seconds = 0;
+	  updateCounter();
+	 
 	$("#Header").html("	<center><span >SIMULATION</span></center>");
 	
 	htm=''
@@ -77,7 +83,7 @@ function spryerDryerMimic(){
 
 		+'</div>'
 		+'<div class="col-sm-12">'
-		+'<button type="button" class="btn btn-danger"  id="btnResult" style="margin-top:10px;width:100%" disabled >RESULT</button>'
+		+'<button type="button" class="btn btn-danger"  id="btnResult" style="margin-top:10px;width:100%" disabled >Result</button>'
 		+'</div>'
 		
 		
@@ -98,7 +104,7 @@ function spryerDryerMimic(){
       +'</div> ' 
       +'<!-- Modal footer --> ' 
       +'<div class="modal-footer">  '
-        +'<button type="button" class="btn btn-danger" data-dismiss="modal" id = "modalClose">Close</button>'  
+        +'<button type="button" class="btn btn-danger" data-dismiss="modal" id = "modalClose">OK</button>'  
       +'</div>'  
     +'</div>'  
  +' </div> ' 
@@ -201,6 +207,8 @@ function resetApp() {
 	  resetFlg =1;
 	 console.log("reset stop "+resetFlg);
   // Step 1: Stop animations and clear relevant timeouts
+	 
+	 
   stopAnimationsAndTimers();
 
   // Step 2: Reset any specific state or UI if needed
@@ -241,6 +249,7 @@ var resetFlg = 0;
 
 function spryerDryermimicDiagram()
 {	
+	
 //	var paper = Raphael("container", 1500, 700);
 //var paper = Raphael("container", 1500, 700);
 
@@ -295,8 +304,9 @@ var mediumTempAir = "80-#e5d0b7-#f2986b";
 //var coldAir = "90-#004080-#66ccff-#e6f7ff";
 var coldAir = "90-#7496b0-#80cfff-#e6f7ff";
 
-var time = 1000;
-
+var time = selectedValue;
+console.log(" mimic time "+time);
+console.log("selectedValue "+selectedValue);
 var rectMain = paper.rect((x+285),y-35,300,70).attr({"stroke":"#545557","stroke-width":3});
 
 paper.text((x + 332), (y -20), "Start-up").attr({ 'font-size': 18, "font-family":"digital-clock-font","fill":"#4e4f52","font-weight":"bold" });
@@ -1049,11 +1059,59 @@ if (step < 100) {
  var offFan_on;
 
  document.getElementById("startBtn").addEventListener("click", function () {
+	 
+	 
+//	 startTimer();
+//	  updateCounter();
+//	  
 	 startCount++;
   // Configure and show the modal
   $("#modelDialog1").addClass("modal-lg");
   $("#modelTitle1").html("Check the Components");
-  $("#modelBody1").html("<b>Before starting the plant check whether<br>- All valves are closed <br>- All pumps are switched off<br>- The instrument air, electricity and other required utilities are available <br>- The production schedule mandates to produce and <br>- Raw material is available</b>");
+  var modelBody1=''
+	  +'<b>Before starting the plant check whether<br>- All valves are closed <br>' 
+	  +'- All pumps are switched off<br>- The instrument air, electricity and other required utilities are available <br>'
+	 +' - The production schedule mandates to produce and <br>'
+	 +' - Raw material is available</b>'
+	
+  $("#modelBody1").html(modelBody1);
+  
+  if(startCount>1){
+	   time = selectedValue;
+		 console.log(" start time "+time);
+		 console.log("selectedValue after start "+selectedValue);
+	  modelBody1+=''
+		 
+		  +' <div class="panel">'
+			 +' <h5>Set Plant Time</h5>'
+			 +' <div class="form-check form-check-inline">'
+			 +'   <input class="form-check-input" type="radio" name="plantTime" id="twoMinutes" value="300">'
+			 +'   <label class="form-check-label radio-label" for="twoMinutes">2 min</label>'
+			 +'  </div>'
+		  +'  <div class="form-check form-check-inline">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="threeMinutes" value="500">'
+		  +'    <label class="form-check-label radio-label" for="threeMinutes">3 min</label>'
+		  +'  </div>'
+		  +'  <div class="form-check form-check-inline">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fourMinutes" value="700">'
+		  +'    <label class="form-check-label radio-label" for="fourMinutes">4 min</label>'
+		  +'  </div>'
+		  +'  <div class="form-check form-check-inline">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fiveMinutes" value="1000">'
+		  +'    <label class="form-check-label radio-label" for="threeMinutes">5 min</label>'
+		  +'  </div>'
+		  +'  <div class="form-check form-check-inline">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="sixMinutes" value="1400">'
+		  +'    <label class="form-check-label radio-label" for="fourMinutes">6 min</label>'
+		  +'  </div>'
+//		  +'	  <div id="selectedTime">Selected Time: None</div>'
+		  +'	</div>'
+		  $("#modelBody1").html(modelBody1);
+  }
+ 
+  
+  
+  
   $("#modelBody1").css({
 	            'font-weight': '500',            // Add padding
 	            'font-family': 'math',       // Font style
@@ -1065,8 +1123,24 @@ if (step < 100) {
   $("#startBtn").prop("disabled",true);
   $("#datasheet").prop("disabled",true);
   // Stop any ongoing animations or timers
- 
-  stopAnimationsAndTimers();
+  const radioButtons = document.querySelectorAll('input[name="plantTime"]');
+  const selectedTimeDiv = document.getElementById('selectedTime');
+  
+  // Add event listeners to each radio button
+  radioButtons.forEach(radio => {
+    radio.addEventListener('change', () => {
+//      selectedTimeDiv.textContent = `Selected Time: ${radio.value}`;
+//      console.log(${radio.value});
+       selectedValue = $('input[name="plantTime"]:checked').val();
+      console.log("on change event "+selectedValue);
+      time = selectedValue;
+		 console.log(" start time "+time);
+		 console.log("selectedValue after start "+selectedValue);
+//      $('#selectedTime').text(`Selected Time: ${selectedValue}`);
+     
+    });
+  });
+//  stopAnimationsAndTimers();
    
   // Clear previous event listeners to avoid duplicates
   $("#myModal1").off("hidden.bs.modal").on("hidden.bs.modal", function () {
