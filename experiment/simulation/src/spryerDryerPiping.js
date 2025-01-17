@@ -1,4 +1,5 @@
 ComponentMasterJson = {};
+timerMasterJson = {};
 resultJson={};
 var StdCompPipingCount=10;
 var StdVesselsCount=4;
@@ -21,6 +22,7 @@ var TotalComp;
 var pipingActualCount=0;
 function spryerDryerComponent()
 {
+	
 	$("#Header").html("	<center><span>SPRAY DRYER - PIPING DIAGRAM</span></center>");
 	htm=''
 		+'<div class="row titlePart"  style="border-style: unset;padding:7px;">'

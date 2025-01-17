@@ -1,6 +1,10 @@
 function result(){
-	$("#simDemo,#procedure").prop("hidden",true);
+	timerMasterJson.mimic=$("#counter").text();
+	console.log(timerMasterJson);
+	
+	$("#simDemo,#procedure,#counter").prop("hidden",true);
 	$("#Header").html("<center><span >SPRAY DRYING PILOT PLANT</span></center>");
+	
 	htm=''
 	+'<div class="container-fluid">'
 	  
@@ -17,6 +21,7 @@ function result(){
 	+'     <tr>'
 	+'        <th>Competency </th>'
 	+'        <th>Status</th>'
+	+'        <th>Time</th>'
 	+'      </tr>'
 	+'    </thead>'
 	+'   <tbody>'
@@ -25,24 +30,36 @@ function result(){
 	+'        <td id="piping">'
 	
 	+'		</td>'
+	+'        <td id="pipingTimer">'
+	
+	+'       </td>'
 	+'     </tr>'
 	+'      <tr>'
 	+'        <td> <b>Configuration in Instruments Diagram</b></td>'
 	+'        <td id="instr">'
 
 	+'		</td>'
+    +'        <td id="instrTimer">'
+	
+	+'       </td>'
 	+'      </tr>'
 	+'     <tr>'
 	+'        <td><b>Sequence of Activities</b></td>'
 	+'        <td id="squ">'
 
 	+'		</td>'
+	  +'        <td id="squTimer">'
+		
+		+'       </td>'
 	+'      </tr>'
 	+'       <tr>'
 	+'        <td><b>Simulation</b></td>'
 	+'        <td id="simulation">'
 	
     +'		</td>'
+  +'        <td id="simulationTimer">'
+	
+	+'       </td>'
     +'     </tr>'
           
     +'    </tbody>'
@@ -220,7 +237,12 @@ function result(){
 	 +'	     	<div class="alert alert-success attainedText">'
 	+'    			 <center><strong> Attained</strong> </center>'
 	+'     		 </div>'
-		     $("#piping").html(str);
+	 $("#piping").html(str);
+		 var str1=''
+	+'	     	<div class="alert alert-success attainedText">'
+	+'    	   <center><strong> '+timerMasterJson.piping+'</strong> </center>'
+	+'     		 </div>'
+	 $("#pipingTimer").html(str1); 
 		     
 	}
 	else
@@ -230,6 +252,13 @@ function result(){
 		    +'  <center><strong>Not Attained</strong> </center>'
 		     +'  </div>'
 		     $("#piping").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-danger attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.piping+'</strong> </center>'
+				+'     		 </div>'
+							     $("#pipingTimer").html(str1); 
+		 
+		 
 		}
 	if(instr>=60){
 		 var str=''
@@ -237,6 +266,12 @@ function result(){
 	+'    			 <center><strong> Attained</strong> </center>'
 	+'     		 </div>'
 		     $("#instr").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-success attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.instr+'</strong> </center>'
+				+'     		 </div>'
+							     $("#instrTimer").html(str1); 
+		 	 
 		     
 	}
 	else
@@ -246,6 +281,11 @@ function result(){
 		    +'  <center><strong>Not Attained</strong> </center>'
 		     +'  </div>'
 		     $("#instr").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-danger attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.instr+'</strong> </center>'
+				+'     		 </div>'
+							     $("#instrTimer").html(str1); 
 		}
 	if(squ>=60){
 		 var str=''
@@ -253,6 +293,11 @@ function result(){
 	+'    			 <center><strong> Attained</strong> </center>'
 	+'     		 </div>'
 		     $("#squ").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-success attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.squences+'</strong> </center>'
+				+'     		 </div>'
+							     $("#squTimer").html(str1); 
 		     
 	}
 	else
@@ -262,6 +307,11 @@ function result(){
 		    +'  <center><strong>Not Attained</strong> </center>'
 		     +'  </div>'
 		     $("#squ").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-danger attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.squences+'</strong> </center>'
+				+'     		 </div>'
+							     $("#squTimer").html(str1); 
 		}
 	if(simulation1>=100){
 		 var str=''
@@ -269,7 +319,11 @@ function result(){
 	+'    			 <center><strong> Attained</strong> </center>'
 	+'     		 </div>'
 		     $("#simulation").html(str);
-		     
+		 var str1=''
+				+'	     	<div class="alert alert-success attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.mimic+'</strong> </center>'
+				+'     		 </div>'
+							     $("#simulationTimer").html(str1); 
 	}
 	else
 		{
@@ -278,6 +332,11 @@ function result(){
 		    +'  <center><strong>Not Attained</strong> </center>'
 		     +'  </div>'
 		     $("#simulation").html(str);
+		 var str1=''
+				+'	     	<div class="alert alert-danger attainedText">'
+				+'    	   <center><strong> '+timerMasterJson.mimic+'</strong> </center>'
+				+'     		 </div>'
+							     $("#simulationTimer").html(str1); 
 		}
 	Highcharts.chart('graphDiv', {
 		credits: { enabled: false},

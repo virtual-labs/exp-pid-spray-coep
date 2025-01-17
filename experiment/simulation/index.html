@@ -52,6 +52,7 @@
 <!-- 	</div> -->
 	<div  class="row container-fluid" id="buttonDiv" >	
 		<div  class="col-sm-12" > 
+		 <h5 id="counter" class=" btn1 timerStyle">00:00:00</h5>
 <!-- 			<button type="button" id="saveAsJpg" class="btn btn-danger btn1" data-dismiss="modal" data-target="#problemstr"><b>Problem statement</b></button>	 -->
 	        <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#proStr"><b>Problem statement</b> </button>
 		    <button type="button" id="procedure" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#proStr"><b>Procedure </b></button>
@@ -67,7 +68,7 @@
 			      <div class="modal-content">
 <!-- 		        Modal Header -->
 			        <div class="modal-header">
-		          <h4 class="modal-title"><center>PROBLEM STATEMENT</center></h4>
+		          <h4 class="modal-title"><center id="modalTitle"></center></h4>
 			          <button type="button" class="close" data-dismiss="modal">&times;</button>
 			        </div>
 <!-- 		        Modal body -->
@@ -143,15 +144,15 @@ Copyrights &copy; COEPTECH - Virtual Labs
 <script src="src/spryerDryerMimic.js"></script>
 <script src="src/spryerDryerPostQuestion.js"></script>
 <script src="src/result.js"></script>
+<script src="src/timer.js"></script>
 
 
 
 <script>
 
 $( document ).ready(function() {
-	
-	  
 	spryerDryerComponent();
+	
 });
 </script>
 <script>
