@@ -1,6 +1,6 @@
 function result(){
 	timerMasterJson.mimic=$("#counter").text();
-	console.log(timerMasterJson);
+//	console.log(timerMasterJson);
 	
 	$("#simDemo,#procedure,#counter").prop("hidden",true);
 	$("#Header").html("<center><span >SPRAY DRYING PILOT PLANT</span></center>");
@@ -225,13 +225,21 @@ function result(){
 	var piping=parseFloat((1/resultJson.piping)*100);
 	var instr=parseFloat((1/resultJson.instrument)*100);
 	var squ=parseFloat((1/resultJson.seqActivites)*100);
+	var startPer=parseFloat((resultJson.animationStart/3)*100);
+	var datasheetPer=parseFloat((resultJson.datasheet/3)*100);
+	var trendsPer=parseFloat((resultJson.trends/3)*100);
+	
 	var simuAdd=resultJson.animationStart+resultJson.datasheet+resultJson.trends;
 	var simulation1=parseFloat((simuAdd/9)*100);
-	console.log(" piping "+piping);
-	console.log(" instr "+instr);
-	console.log(" squ "+squ);
-	console.log(" simuAdd "+simuAdd);
-	console.log(" simulation1 "+simulation1);
+//	console.log(" piping "+piping);
+//	console.log(" instr "+instr);
+//	console.log(" squ "+squ);
+//	console.log(" simuAdd "+simuAdd);
+	
+//	console.log(" startPer "+startPer);
+//	console.log(" datasheetPer "+datasheetPer);
+//	console.log(" trendsPer "+trendsPer);
+//	console.log(" simulation1 "+simulation1);
 	if(piping>=60){
 		 var str=''
 	 +'	     	<div class="alert alert-success attainedText">'
@@ -313,17 +321,17 @@ function result(){
 				+'     		 </div>'
 							     $("#squTimer").html(str1); 
 		}
-	if(simulation1>=100){
+	if(startPer>=100 && datasheetPer>=100 && trendsPer>=100){
 		 var str=''
 	 +'	     	<div class="alert alert-success attainedText">'
 	+'    			 <center><strong> Attained</strong> </center>'
 	+'     		 </div>'
 		     $("#simulation").html(str);
-		 var str1=''
-				+'	     	<div class="alert alert-success attainedText">'
-				+'    	   <center><strong> '+timerMasterJson.mimic+'</strong> </center>'
-				+'     		 </div>'
-							     $("#simulationTimer").html(str1); 
+	var str1=''
+	+'	     	<div class="alert alert-success attainedText">'
+	+'    	   <center><strong> '+timerMasterJson.mimic+'</strong> </center>'
+	+'     		 </div>'
+	 $("#simulationTimer").html(str1); 
 	}
 	else
 		{
@@ -357,10 +365,10 @@ function result(){
 	    	 enabled: false,
         style: {
             fontFamily: 'Arial, sans-serif', // Set tooltip font family
-            fontSize: '14px',                    // Set tooltip font size
+            fontSize: '12px',                    // Set tooltip font size
             color: '#000',                    // Set tooltip text color
             fontWeight: 'bold',                  // Optional: bold text
-            backgroundColor: '#F0F0F0'           // Optional: tooltip background color
+            backgroundColor: '#000'           // Optional: tooltip background color
         },
         formatter: function () {
             return `<b>${this.point.name}</b>: ${this.y}%`;
@@ -376,10 +384,11 @@ function result(){
 	            dataLabels: {
 	                enabled: true,
 	                style: {
-	                    color: '#000000', // Text color
-	                    fontSize: '14px', // Font size
-//	                    fontWeight: 'bold', // Font weight
-	                    fontFamily: 'Arial, sans-serif', // Font style
+	                    color: '#000',
+//	                font-family: 'Arial, sans-serif',
+	                fontSize: '14px',
+	                /* font-weight: bold; */
+	                fill: '#000',
 	                },
 	                formatter: function () {
 	                    return `<span>${this.point.name}: ${this.percentage.toFixed(2)}%</span>`;

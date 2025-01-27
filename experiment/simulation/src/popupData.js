@@ -1,8 +1,6 @@
 $("#simDemo").click(function () {
-	$("#modalTitle").html("PROBLEM STATEMENT");
-	 $("#modelDialog").removeClass("modal-md");
-	 $("#modelDialog").addClass("modal-xl");
-	htm=''
+	
+	var htm=''
 		
 		+'<div class="row statement" ><p>A problem statement is a crucial element in designing and developing a pilot plant. '
 		+'It defines the problem or opportunity that the pilot plant aims to address, and it serves as a guiding force throughout the project.'
@@ -20,11 +18,58 @@ $("#simDemo").click(function () {
 	$("#proStrBody").html(htm);
 });
 	$("#procedure").click(function () {
-		 $("#modelDialog").removeClass("modal-xl");
-		 $("#modelDialog").addClass("modal-md");
-		$("#modalTitle").html("PROCEDURE");
-		htm=''
+		 
+		var htm='Add procedure here'
 			+' '
-		$("#proStrBody").html(htm);
+		$("#procedureBody").html(htm);
+	});
+	$("#tagDetail1").click(function () {
+		 
+		var htm=''
+			+'  <table class="table table-hover table-bordered">'
+			+'    <thead>'
+			+' <tr class="table-info">'
+			+'  <th>Tag Details</th>'
+			+'  <th>Tags</th>'
+			+' </tr>'
+			+' </thead>'
+			+' <tbody>'
+			
+			+' <tr>'
+			+' <td>Hot Air Temperature  </td>'
+			+'  <td>TT01</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>Product Temperature  </td>'
+			+'  <td>TT02</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>Flow Transmitter </td>'
+			+'  <td>FT</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>Vacuum Transmitter  </td>'
+			+'  <td>NT</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>Heater Firing  </td>'
+			+'  <td>HEATER</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>Peristaltic Pump  </td>'
+			+'  <td>PUMP</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>FD FAN</td>'
+			+'  <td>FD</td>'
+			+'  </tr>'
+			+' <tr>'
+			+' <td>ID FAN</td>'
+			+'  <td>ID</td>'
+			+'  </tr>'
+			
+			+' </tbody>'
+			+'  </table>'
+		$("#tagBody").html(htm);
 	});
 	
