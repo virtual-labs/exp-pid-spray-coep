@@ -2,13 +2,13 @@ var dataJson={};
 var startCount=0;
 var datasheetCount=0;
 var trendsCount=0;
-var selectedValue=1000;
+var selectedValue=1400;
 
 
-function spryerDryerMimic(){
+function sprayDryerMimic(){
 	
 	timerMasterJson.squences=$("#counter").text();
-	console.log(timerMasterJson);
+//	console.log(timerMasterJson);
 	seconds = 0;
 	  updateCounter();
 	 
@@ -46,36 +46,36 @@ function spryerDryerMimic(){
 		+'</thead>'
 		+'<tbody>'
 		+' <tr>'
-		+'   <td><label><b>Flow Transmitter (FT) :</b></label></td>'
+		+'   <td><label><b>FT</b></label></td>'
 		+'   <td><label class="PMCValue" id="ft">0</label>m/s</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>Hot Air Temperature (TT01) : </b></label></td>'
+		+' <td><label><b>TT01 </b></label></td>'
 		+' <td><label class="PMCValue" id="tt1">0</label>°C</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>Product Temperature (TT02) :</b></label></td>'
+		+' <td><label><b>TT02</b></label></td>'
 		+' <td><label class="PMCValue" id="tt2">0</label>°C</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>Vacuum Transmitter (NT): </b></label></td>'
+		+' <td><label><b>NT </b></label></td>'
 		+' <td><label class="PMCValue" id="nt">0</label>mBar</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>Heater firing:  </b></label></td>'
+		+' <td><label><b>HEATER </b></label></td>'
 		+' <td><label class="PMCValue" id="hf">0</label>mBar</td>'
 		+'  </tr>'
 		
 		+'  <tr>'
-		+' <td><label><b>Peristaltic Pump :</b></label></td>'
+		+' <td><label><b>PUMP</b></label></td>'
 		+' <td><label class="PMCValue" id="pump">0</label>%</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>FD Fan :</b></label></td>'
+		+' <td><label><b>FD FAN :</b></label></td>'
 		+' <td><label class="PMCValue" id="fdfan">0</label>%</td>'
 		+'  </tr>'
 		+'  <tr>'
-		+' <td><label><b>ID Fan :</b></label></td>'
+		+' <td><label><b>ID FAN :</b></label></td>'
 		+' <td><label class="PMCValue" id="idfan">0</label>%</td>'
 		+'  </tr>'
 		+'</tbody>'
@@ -140,7 +140,7 @@ function spryerDryerMimic(){
 	spryerDryermimicDiagram();
 	
 	$("#graph").click(function(){
-		spryerDryerPostQuestion(dataJson);
+		sprayDryerGraph(dataJson);
 		trendsCount++;
 	});
 	
@@ -148,7 +148,7 @@ function spryerDryerMimic(){
 		resultJson.animationStart=startCount;
 		resultJson.datasheet=datasheetCount;
 		resultJson.trends=trendsCount;
-		console.log(resultJson);
+//		console.log(resultJson);
 		result();
 	});
 	
@@ -161,7 +161,7 @@ function spryerDryerMimic(){
 		 // Example Usage
 		resetApp();
 		 $("#startBtn").prop("disabled",false);
-		console.log("reset clicked ");
+//		console.log("reset clicked ");
 	});
 	
 	$("#datasheet").click(function(){
@@ -198,14 +198,14 @@ function clearRelevantTimers() {
     clearInterval(i); // Clear each interval
   }
 
-  console.log("Timers cleared.");
+//  console.log("Timers cleared.");
 }
 
 // Function to reset animations and states without disturbing existing functionality
 function resetApp() {
 	
 	  resetFlg =1;
-	 console.log("reset stop "+resetFlg);
+//	 console.log("reset stop "+resetFlg);
   // Step 1: Stop animations and clear relevant timeouts
 	 
 	 
@@ -217,8 +217,8 @@ function resetApp() {
 
   // Step 3: Reinitialize functions like spryerDryermimicDiagram if required
 //  spryerDryermimicDiagram(); // Assuming you need to reinitialize this for the reset
-      spryerDryerMimic();
-  console.log("Reset complete.");
+      sprayDryerMimic();
+//  console.log("Reset complete.");
 }
 
 
@@ -253,7 +253,7 @@ function spryerDryermimicDiagram()
 //	var paper = Raphael("container", 1500, 700);
 //var paper = Raphael("container", 1500, 700);
 
-	console.log("pd : " + plantData);
+//	console.log("pd : " + plantData);
 
 var w = 1250;
 var h = 800;
@@ -317,7 +317,7 @@ var x = 20, y = 55;
 "HeaterPer": [0,0,0,5,6,7,8,9,10,11,12,13,14,15,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,72,73,74,75,76,77,77,77,77,77,77,75,73,71,70,70,70,70,70,70,70,70,72,71,70,70,70,70,70,70,70,70,68,70,70,70,70,70,69,68,67,66,65,64,63,64,65,65,65,65,65,65,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,44,35,25,0,0,0,0,0,0,0,0,0,0,0],
 "time":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130]
 }
-console.log(dataJson);
+//console.log(dataJson);
 
 var x = 10, y = 50;
 var overAllDelay = 0;
@@ -336,8 +336,8 @@ var mediumTempAir = "80-#e5d0b7-#f2986b";
 var coldAir = "90-#7496b0-#80cfff-#e6f7ff";
 
 var time = selectedValue;
-console.log(" mimic time "+time);
-console.log("selectedValue "+selectedValue);
+//console.log(" mimic time "+time);
+//console.log("selectedValue "+selectedValue);
 var rectMain = paper.rect((x+285),y-35,300,70).attr({"stroke":"#545557","stroke-width":3});
 
 paper.text((x + 332), (y -20), "Start-up").attr({ 'font-size': 18, "font-family":"digital-clock-font","fill":"#4e4f52","font-weight":"bold" });
@@ -760,10 +760,10 @@ var ftUnit = paper.text(x+402,y+455," m/s ").attr({"font-size":18,"fill":"#0a4cf
 var heaterValTxt = paper.text(x+335,y+253.5,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
 var heaterUnit = paper.text(x+372,y+253.5," % ").attr({"font-size":18,"fill":"#0a4cf2","font-weight":"bold"});
 
-var tt01ValTxt = paper.text(x+439,y+133.5,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+var tt01ValTxt = paper.text(x+439,y+133.5,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#f20a0a","font-weight":"bold"});
 var tt01Unit = paper.text(x+475,y+133.5,"\u00B0C ").attr({"font-size":18,"fill":"#0a4cf2","font-weight":"bold"});
 
-var tt02ValTxt = paper.text(x+718,y+284,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+var tt02ValTxt = paper.text(x+718,y+284,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#f20a0a","font-weight":"bold"});
 var tt02Unit = paper.text(x+755,y+284,"\u00B0C ").attr({"font-size":18,"fill":"#0a4cf2","font-weight":"bold"});
 
 var ntValTxt = paper.text(x+829,y+218.6,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
@@ -799,8 +799,8 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
      $("#fdfan").text(dataJson.FD_SPEEDPer[i]);
      $("#idfan").text(dataJson.ID_SPEEDPer[i]);
      
-   tt01ValTxt = paper.text(x + 439, y + 133.5, dataJson.TT01[i]).attr({"font-size": 18,"font-family": "digital-clock-font","fill": "#0af25f","font-weight": "bold"});
-   tt02ValTxt = paper.text(x+718,y+284,dataJson.TT02[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
+   tt01ValTxt = paper.text(x + 439, y + 133.5, dataJson.TT01[i]).attr({"font-size": 18,"font-family": "digital-clock-font","fill": "#f20a0a","font-weight": "bold"});
+   tt02ValTxt = paper.text(x+718,y+284,dataJson.TT02[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#f20a0a","font-weight":"bold"});
    p1MotorValTxt = paper.text(x+174,y+273.5,dataJson.P1_SPEED[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
    fdFanValTxt = paper.text(x+193,y+475,dataJson.FD_SPEEDPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
    ftValTxt = paper.text(x+342.5,y+456,dataJson.FT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
@@ -1109,30 +1109,30 @@ if (step < 100) {
   
   if(startCount>1){
 	   time = selectedValue;
-		 console.log(" start time "+time);
-		 console.log("selectedValue after start "+selectedValue);
+//		 console.log(" start time "+time);
+//		 console.log("selectedValue after start "+selectedValue);
 	  modelBody1+=''
 		 
 		  +' <div class="panel">'
-			 +' <h5>Set Plant Time</h5>'
+			 +' <h5>Set Simulation Time</h5>'
 			 +' <div class="form-check form-check-inline">'
-			 +'   <input class="form-check-input" type="radio" name="plantTime" id="twoMinutes" value="500">'
+			 +'   <input class="form-check-input" type="radio" name="plantTime" id="twoMinutes" value="300">'
 			 +'   <label class="form-check-label radio-label" for="twoMinutes">2 min</label>'
 			 +'  </div>'
 		  +'  <div class="form-check form-check-inline">'
-		  +'    <input class="form-check-input" type="radio" name="plantTime" id="threeMinutes" value="600">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="threeMinutes" value="500">'
 		  +'    <label class="form-check-label radio-label" for="threeMinutes">3 min</label>'
 		  +'  </div>'
 		  +'  <div class="form-check form-check-inline">'
-		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fourMinutes" value="800">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fourMinutes" value="700">'
 		  +'    <label class="form-check-label radio-label" for="fourMinutes">4 min</label>'
 		  +'  </div>'
 		  +'  <div class="form-check form-check-inline">'
-		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fiveMinutes" value="900">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="fiveMinutes" value="1000">'
 		  +'    <label class="form-check-label radio-label" for="threeMinutes">5 min</label>'
 		  +'  </div>'
 		  +'  <div class="form-check form-check-inline">'
-		  +'    <input class="form-check-input" type="radio" name="plantTime" id="sixMinutes" value="1000">'
+		  +'    <input class="form-check-input" type="radio" name="plantTime" id="sixMinutes" value="1400">'
 		  +'    <label class="form-check-label radio-label" for="fourMinutes">6 min</label>'
 		  +'  </div>'
 //		  +'	  <div id="selectedTime">Selected Time: None</div>'
@@ -1163,10 +1163,10 @@ if (step < 100) {
 //      selectedTimeDiv.textContent = `Selected Time: ${radio.value}`;
 //      console.log(${radio.value});
        selectedValue = $('input[name="plantTime"]:checked').val();
-      console.log("on change event "+selectedValue);
+//      console.log("on change event "+selectedValue);
       time = selectedValue;
-		 console.log(" start time "+time);
-		 console.log("selectedValue after start "+selectedValue);
+//		 console.log(" start time "+time);
+//		 console.log("selectedValue after start "+selectedValue);
 //      $('#selectedTime').text(`Selected Time: ${selectedValue}`);
      
     });
@@ -1175,7 +1175,7 @@ if (step < 100) {
    
   // Clear previous event listeners to avoid duplicates
   $("#myModal1").off("hidden.bs.modal").on("hidden.bs.modal", function () {
-    console.log("Modal has been closed!");
+//    console.log("Modal has been closed!");
 
     // Remove the backdrop if it still exists
     $(".modal-backdrop").remove();
@@ -1186,7 +1186,7 @@ if (step < 100) {
     }
 
     resetFlg = 0; // Reset the flag
-    console.log("resetFlg start " + resetFlg);
+//    console.log("resetFlg start " + resetFlg);
 
     let completedAnimations = 0;
 
@@ -1214,7 +1214,7 @@ if (step < 100) {
       // Execute additional logic
       iterateTT01();
     } else {
-      console.log("No animation triggered due to resetFlg.");
+//      console.log("No animation triggered due to resetFlg.");
     }
   });
 
@@ -1650,7 +1650,7 @@ function waterAnimate(callback) {
 //			console.log("ptt "+ptt);
 		} else {
 			clearInterval(pinterval);
-			console.log("Interval cleared");
+//			console.log("Interval cleared");
 		}
 	}, time*2);
   
