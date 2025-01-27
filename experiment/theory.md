@@ -147,7 +147,7 @@ Or the combinations of these three are also possible, depending on authority req
 
 Following are the design specifications for the lab scale spray dryer which we have calculated from above mentioned steps. Powder Collection method and material of construction (MOC) decided based on the clients requirements.
 
-![*Spray_dryer*](images/Design_Specifications.png)
+![*Spray_dryer*](images/Spray_Dryer.png)
 
 | **Parameter**                   | **Notation**                                    |
 |----------------------------------|------------------------------------------------|
