@@ -1,5 +1,3 @@
-#### References 
-
 ###### Books :
 -	Masters, K. (1985). Spray Drying Handbook. 4th ed. New York : Halsted Press. ISBN 978-0-470-27354-4.
 -	Filkova, I., & Huang, L. (2016). Spray Drying : A Review of the Fundamentals, Applications, and Recent Advances. Drying Technology, 34(12), 1345-1365. DOI : 10.1080/07373937.2016.1145291.
