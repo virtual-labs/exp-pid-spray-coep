@@ -56,7 +56,7 @@
 			<button type="button" id="tagDetail1" class="btn btn-danger btn1" data-toggle="modal" data-target="#tagDetail"><b>Tag details</b></button>	
 	        <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#proStr"><b>Problem statement</b> </button>
 		    <button type="button" id="procedure" class="btn btn-danger btn1 button1" data-toggle="modal" data-target="#procedure1"><b>Procedure </b></button>
-<!-- 	   <button type="button" class="btn btn-danger"  id="btnResult" style="margin-top:10px;"  >Next level </button> -->
+            <button type="button" class="btn btn-danger btn1 button1"  id="report" style="margin-top:10px;"  hidden>Download report </button> 
 	
 	     </div>
 	     
@@ -86,7 +86,7 @@
 	     
 	     <!-- 			    The Modal  ProStr -->
 		  <div class="modal fade " id="procedure1">
-		    <div class="modal-dialog modal-md" >
+		    <div class="modal-dialog modal-xl" >
 			      <div class="modal-content">
 <!-- 		        Modal Header -->
 			        <div class="modal-header">
@@ -161,6 +161,7 @@ Copyrights &copy; COEPTECH - Virtual Labs
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <!-- Highcharts JS -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -198,8 +199,21 @@ Copyrights &copy; COEPTECH - Virtual Labs
 $( document ).ready(function() {
 	sprayDryerPiping();
 // 	sprayDryerMimic();
-	
 });
+
+$('#report').on('click', function() {
+			$('#report').prop("hidden",true);
+		    html2canvas(document.querySelector("#mainDiv")).then(canvas => {
+		        // Append the screenshot canvas to the body
+		        document.body.appendChild(canvas);
+		        $("canvas").css("display","none");
+		        // Optionally save the screenshot as an image
+		        var link = document.createElement('a');
+		        link.download = 'SprayDryer_report.png';
+		        link.href = canvas.toDataURL();
+		        link.click();
+		    });
+		});
 </script>
 <script>
 toastr.options = {
