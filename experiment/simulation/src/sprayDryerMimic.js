@@ -2,7 +2,7 @@ var dataJson={};
 var startCount=0;
 var datasheetCount=0;
 var trendsCount=0;
-var selectedValue=1400;
+var selectedValue=1000;
 
 
 function sprayDryerMimic(){
@@ -126,7 +126,7 @@ function sprayDryerMimic(){
 		+'	        </div>'
 //		+'	        <!-- Modal footer -->'
 		+'	        <div class="modal-footer">'
-		+'       <button type="button" class="btn btn-danger"  id="download" style="margin-top:10px;float: right;" hidden>Download </button>'
+		+'       <button type="button" class="btn btn-danger"  id="download" style="margin-top:10px;float: right;">Download </button>'
 //		+'	          <button type="button" class="btn btn-danger" data-dismiss="modal" >Ok</button>'
 		+'	        </div>'
 		+'	      </div>'

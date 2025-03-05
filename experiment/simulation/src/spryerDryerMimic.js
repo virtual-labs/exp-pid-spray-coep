@@ -126,7 +126,7 @@ function spryerDryerMimic(){
 		+'	        </div>'
 //		+'	        <!-- Modal footer -->'
 		+'	        <div class="modal-footer">'
-		+'       <button type="button" class="btn btn-danger"  id="download" style="margin-top:10px;float: right;" hidden>Download </button>'
+		+'       <button type="button" class="btn btn-danger"  id="download" style="margin-top:10px;float: right;" >Download </button>'
 //		+'	          <button type="button" class="btn btn-danger" data-dismiss="modal" >Ok</button>'
 		+'	        </div>'
 		+'	      </div>'

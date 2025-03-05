@@ -18,9 +18,79 @@ $("#simDemo").click(function () {
 	$("#proStrBody").html(htm);
 });
 	$("#procedure").click(function () {
-		 
-		var htm='Add procedure here'
-			+' '
+		
+		var htm=''
+    +'         <h5 class="text-center" style="color: #f8f9fa; background-color: #343a40; padding: 10px;">PROCEDURE</h5>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">1. Piping Diagram Configuration</h4>'
+    +'             <ul>'
+    +'                 <li>- Configure all parameters for the piping diagram. In which you need to identify vessels and equipment to run the plant.</li>'
+    +'                 <li>- Click on the <button class="button">Verify Components</button> button.</li>'
+    +'                 <li>- If all configuration parameters are correct, the "Next Level" button will be visible.</li>'
+    +'                 <li>- Click on the <button class="button">Next Level</button> button to proceed.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">2. Instrument Diagram Configuration</h4>'
+    +'             <ul>'
+    +'                 <li>- Follow the same steps as above to configure the instrument diagram. In this you will have identify the instruments required to run the plant.</li>'
+    +'                 <li>- Click on the <button class="button">Verify Instruments</button> button.</li>'
+    +'                 <li>- If all configuration parameters are correct, the "Next Level" button will be visible.</li>'
+    +'                 <li>- Click on the <button class="button">Next Level</button> button to continue.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">3. Sequence of Activities</h4>'
+    +'             <ul>'
+    +'                 <li>- Read the “Prior Knowledge Assessment” statements carefully.</li>'
+    +'                 <li>- Enter the appropriate sequence number in the provided text box. The system will not allow you to write the duplicate numbers. Hence be careful.</li>'
+    +'                 <li>- Click on the <button class="button">Submit</button> button.</li>'
+    +'                 <li>- You have three attempts to verify whether the sequence is correct or not.</li>'
+    +'                 <li>- Try three times before proceeding to the Simulation section.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">4. Simulation Execution</h4>'
+    +'             <ul>'
+    +'                 <li>- Click on the <button class="button">Start</button> button to begin the simulation.</li>'
+    +'                 <li>- The first-time setting runs for 5 minutes by default.</li>'
+    +'                 <li>- For other test cycles, you can choose different time durations such as 2 min, 3 min, 4 min, etc.</li>'
+    +'                 <li>- The simulation will display the status and phases during execution.</li>'
+    +'                 <li>- You can start the next test cycle or view the datasheet and trends according to the test cycles.</li>'
+    +'                 <li>- The datasheet for each test cycle can be downloaded in PDF format by clicking on the <button class="button">Download</button> button.</li>'
+    +'                 <li>- Multiple readings are available in line format.</li>'
+    +'                 <li>- Use the checkbox to view different series or hide specific series as needed.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">4.1. Download Graph</h4>'
+    +'             <ul>'
+    +'                 <li>- Click on the <button class="button">Download Graph</button> button to save the graph.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">4.2. Data Monitoring & Graphs</h4>'
+    +'             <ul>'
+    +'                 <li>- View the Datasheet and Trends accordingly.</li>'
+    +'                 <li>- The trend functionality allows you to see multiple readings in a line or trend format.</li>'
+    +'                 <li>- Use the checkbox to switch between different series or hide/show specific data.</li>'
+    +'                 <li>- Download the graph using the <button class="button">Download Graph</button> button.</li>'
+    +'             </ul>'
+    +'         </div>'
+
+    +'         <div class="section">'
+    +'             <h4 class="tab-title">4.3. Result Assessment</h4>'
+    +'             <ul>'
+    +'                 <li>- Click on the <button class="button">Result</button> button to view your performance assessment.</li>'
+    +'             </ul>'
+    +'         </div>';
+
 		$("#procedureBody").html(htm);
 	});
 	$("#tagDetail1").click(function () {
