@@ -376,3 +376,63 @@ background-color: #343a40;
     border-color: #000;
     width: -webkit-fill-available;
     }
+    
+    /*////////// Procedure css /////////*/
+.section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #244747;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #244747; /* Applies a full-width bottom border */
+    display: block; /* Ensures the border spans full width */
+    width: 100%; /* Forces the border to cover full width */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 16px;
+    margin: 8px 0px;
+    line-height: 1.6;
+/*    list-style-type: circle;*/
+}
+
+.button {
+     border-color: teal;
+    background-color: teal;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+/*    cursor: pointer;*/
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    cursor: none;
+}
+
+input[type="text"] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.modal-content{
+    background-color: #ecf1f1;
+    }

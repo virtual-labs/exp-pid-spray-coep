@@ -13,7 +13,7 @@ function sprayDryerGraph(dataJson)
 	+' <div class="row" id="graphDiv">'
 //	  <div class="row mb-3">
 //    <!-- Checkboxes for toggling series -->
-	+'  <div class="col-md-12 text-center" id="checkDiv" hidden>'
+	+'  <div class="col-md-12 text-center" id="checkDiv" >'
 	+'    <label class="mr-3"><input type="checkbox" class="series-toggle" data-series="0" checked> <b>TT01</b></label>'
 	+'      <label class="mr-3"><input type="checkbox" class="series-toggle" data-series="1" checked><b> TT02</b></label>'
 	+'     <label class="mr-3"><input type="checkbox" class="series-toggle" data-series="2" checked><b> FT</b></label>'

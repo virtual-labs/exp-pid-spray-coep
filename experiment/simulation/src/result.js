@@ -2,7 +2,8 @@ function result(){
 	timerMasterJson.mimic=$("#counter").text();
 //	console.log(timerMasterJson);
 	
-	$("#simDemo,#procedure,#counter").prop("hidden",true);
+	$("#simDemo,#procedure,#counter,#tagDetail1").prop("hidden",true);
+	$("#report").prop("hidden",false);
 	$("#Header").html("<center><span >SPRAY DRYING PILOT PLANT</span></center>");
 	
 	htm=''
