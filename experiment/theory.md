@@ -1,3 +1,5 @@
+## Theory
+
 The theory covers basic aspects about the design and running of spray dryer pilot plant. 
 A spray dryer pilot plant is a small-scale facility designed to test and optimize the spray drying process for various products, such as food,
 pharmaceuticals, and chemicals. The pilot plant is a scaled-down version of a commercial spray dryer, allowing for the development and refinement 
