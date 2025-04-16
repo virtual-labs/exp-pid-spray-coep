@@ -4,13 +4,20 @@ var datasheetCount=0;
 var trendsCount=0;
 var selectedValue=1000;
 
+let timeoutId;
+let tt01Timeouts = [];
+var timerCnt = 1;
+
 
 function sprayDryerMimic(){
 	
+	if(timerCnt == 1){
 	timerMasterJson.squences=$("#counter").text();
 //	console.log(timerMasterJson);
 	seconds = 0;
 	  updateCounter();
+	  timerCnt++;
+	 }
 	 
 	$("#Header").html("	<center><span >SIMULATION</span></center>");
 	
@@ -178,27 +185,38 @@ function sprayDryerMimic(){
 
 
 
+// Global tracker for the updateCounter timer
+let counterIntervalId = null; // Make sure this is set properly when the counter starts
+
+ 
+ 
+
 function stopAnimationsAndTimers() {
   // Stop specific animations on elements that need to be reset
-  $("#Selection").stop(true, true); // Example for stopping any animation on #Selection
-   
-  // Clear timeouts and intervals that might be running and causing issues
+  $("#Selection").stop(true, true);
+// animateToOriginal(0);
+  // Clear timeouts and intervals (excluding updateCounter)
   clearRelevantTimers();
 }
 
-// Function to clear all relevant timeouts and intervals
+// Modified clearRelevantTimers to preserve updateCounter's interval
 function clearRelevantTimers() {
-  let highestTimeoutId = setTimeout(() => { }); // Get the highest timeout ID
+  let highestTimeoutId = setTimeout(() => { });
   for (let i = 0; i < highestTimeoutId; i++) {
-    clearTimeout(i); // Clear each timeout
+    clearTimeout(i);
   }
 
-  let highestIntervalId = setInterval(() => { }); // Get the highest interval ID
+  let highestIntervalId = setInterval(() => { });
   for (let i = 0; i < highestIntervalId; i++) {
-    clearInterval(i); // Clear each interval
+    if (i !== counterIntervalId) {
+      clearInterval(i);
+    }
   }
+}
 
-//  console.log("Timers cleared.");
+function clearTT01Timeouts() {
+//  tt01Timeouts.forEach(timeoutId => clearTimeout(timeoutId));
+  tt01Timeouts = [];
 }
 
 // Function to reset animations and states without disturbing existing functionality
@@ -209,8 +227,9 @@ function resetApp() {
   // Step 1: Stop animations and clear relevant timeouts
 	 
 	 
-  stopAnimationsAndTimers();
-
+   $("#Selection").stop(true, true);
+  clearTT01Timeouts();
+  
   // Step 2: Reset any specific state or UI if needed
  
 //  $("#Selection").html(htm); // Update the content as needed
@@ -306,17 +325,17 @@ var x = 20, y = 55;
 //	paper.setSize('94%', '100%');
 //}
 
- dataJson = {
-"TT01": [22,22,22,22,22,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,45,50,55,60,70,80,90,100,110,120,120,120,120,120,120,120,120,120,120,120,120,119,118,117,115,113,110,112,114,116,118,120,122,124,126,128,130,130,130,130,130,130,130,129,128,129,130,130,130,130,130,130,130,132,131,130,130,130,130,131,132,133,134,135,134,135,134,133,132,131,130,130,130,131,132,133,132,131,131,131,131,130,130,130,130,130,130,130,130,131,132,132,131,132,133,132,130,125,110,100,90,80,75,70,65,62,61],
-"TT02": [20,20,20,20,20,20,20,20,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,40,43,46,50,52,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,68,66,64,62,62,63,64,65,66,67,68,69,70,70,70,70,70,70,70,70,70,68,66,66,66,66,66,66,66,66,67,67,66,66,66,66,67,68,69,70,71,71,71,71,70,70,69,69,69,68,69,69,70,70,70,70,70,69,69,69,69,69,69,69,69,69,69,69,71,71,71,72,71,70,67,63,61,55,49,45,43,41,40,40],
-"FT": [0,0,0,0,0,0,0,0.00216,0.00252,0.00288,0.00324,0.0036,0.00396,0.00432,0.00468,0.0054,0.00612,0.009,0.0108,0.0126,0.0144,0.0162,0.01692,0.01764,0.01872,0.02016,0.0216,0.0234,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.02412,0.02376,0.0234,0.02304,0.02268,0.02232,0.02196,0.0216,0.02124,0.02088,0.02052,0.02016,0.0198,0.01944,0.01908,0.01872,0.01836,0.018,0.01764,0.01728,0.0144,0.0108,0.0108,0.0108,0.0108,0.0108,0.0108,0.0072,0.0036,0,0,0,0,0],
-"NT": [0,0,0,0,0,0,0,-2.01,-2.68,-3.35,-4.02,-4.69,-5.36,-6.03,-6.7,-7.37,-8.04,-8.71,-13.4,-16.75,-20.1,-23.45,-25.46,-27.47,-29.48,-32.16,-34.84,-37.52,-40.2,-42.88,-44.22,-45.56,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-47.57,-46.9,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.23,-46.23,-45.56,-44.89,-44.22,-43.818,-43.282,-42.746,-42.21,-41.674,-41.138,-40.602,-40.066,-39.53,-38.994,-38.458,-37.922,-37.386,-36.85,-30.15,-23.45,-23.45,-23.45,-23.45,-23.45,-23.45,-16.75,-10.05,-6.7,-5.36,-4.02,-2.68,0],
-"P1_SPEED": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,7,9,11,12,13,14,15,16,17,18,19,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,65,65,70,69,68,67,66,65,64,63,62,61,60,61,62,63,68,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,50,45,40,35,30,25,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0],
-"FD_SPEEDPer": [0,0,0,0,0,0,5,6,7,8,9,10,11,12,13,15,17,25,30,35,40,45,47,49,52,56,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,40,30,30,30,30,30,30,20,10,0,0,0,0,0],
-"ID_SPEEDPer": [0,0,0,0,0,0,2,3,4,5,6,7,8,9,10,11,12,13,20,25,30,35,38,41,44,48,52,56,60,64,66,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,70,71,71,71,71,71,71,71,71,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,69,68,67,66,65.4,64.6,63.8,63,62.2,61.4,60.6,59.8,59,58.2,57.4,56.6,55.8,55,45,35,35,35,35,35,35,25,15,10,8,6,4,0],
-"HeaterPer": [0,0,0,5,6,7,8,9,10,11,12,13,14,15,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,72,73,74,75,76,77,77,77,77,77,77,75,73,71,70,70,70,70,70,70,70,70,72,71,70,70,70,70,70,70,70,70,68,70,70,70,70,70,69,68,67,66,65,64,63,64,65,65,65,65,65,65,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,44,35,25,0,0,0,0,0,0,0,0,0,0,0],
-"time":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130]
-}
+		 dataJson = {
+		"TT01": [22,22,22,22,22,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,45,50,55,60,70,80,90,100,110,120,120,120,120,120,120,120,120,120,120,120,120,119,118,117,115,113,110,112,114,116,118,120,122,124,126,128,130,130,130,130,130,130,130,129,128,129,130,130,130,130,130,130,130,132,131,130,130,130,130,131,132,133,134,135,134,135,134,133,132,131,130,130,130,131,132,133,132,131,131,131,131,130,130,130,130,130,130,130,130,131,132,132,131,132,133,132,130,125,110,100,90,80,75,70,65,62,61],
+		"TT02": [20,20,20,20,20,20,20,20,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,40,43,46,50,52,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,68,66,64,62,62,63,64,65,66,67,68,69,70,70,70,70,70,70,70,70,70,68,66,66,66,66,66,66,66,66,67,67,66,66,66,66,67,68,69,70,71,71,71,71,70,70,69,69,69,68,69,69,70,70,70,70,70,69,69,69,69,69,69,69,69,69,69,69,71,71,71,72,71,70,67,63,61,55,49,45,43,41,40,40],
+		"FT": [0,0,0,0,0,0,0,0.00216,0.00252,0.00288,0.00324,0.0036,0.00396,0.00432,0.00468,0.0054,0.00612,0.009,0.0108,0.0126,0.0144,0.0162,0.01692,0.01764,0.01872,0.02016,0.0216,0.0234,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.0252,0.02484,0.02448,0.02412,0.02376,0.0234,0.02304,0.02268,0.02232,0.02196,0.0216,0.02124,0.02088,0.02052,0.02016,0.0198,0.01944,0.01908,0.01872,0.01836,0.018,0.01764,0.01728,0.0144,0.0108,0.0108,0.0108,0.0108,0.0108,0.0108,0.0072,0.0036,0,0,0,0,0],
+		"NT": [0,0,0,0,0,0,0,-2.01,-2.68,-3.35,-4.02,-4.69,-5.36,-6.03,-6.7,-7.37,-8.04,-8.71,-13.4,-16.75,-20.1,-23.45,-25.46,-27.47,-29.48,-32.16,-34.84,-37.52,-40.2,-42.88,-44.22,-45.56,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-47.57,-46.9,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-47.57,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.9,-46.23,-46.23,-45.56,-44.89,-44.22,-43.818,-43.282,-42.746,-42.21,-41.674,-41.138,-40.602,-40.066,-39.53,-38.994,-38.458,-37.922,-37.386,-36.85,-30.15,-23.45,-23.45,-23.45,-23.45,-23.45,-23.45,-16.75,-10.05,-6.7,-5.36,-4.02,-2.68,0],
+		"P1_SPEED": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,7,9,11,12,13,14,15,16,17,18,19,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,65,65,70,69,68,67,66,65,64,63,62,61,60,61,62,63,68,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,50,45,40,35,30,25,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		"FD_SPEEDPer": [0,0,0,0,0,0,5,6,7,8,9,10,11,12,13,15,17,25,30,35,40,45,47,49,52,56,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,68,67,66,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,40,30,30,30,30,30,30,20,10,0,0,0,0,0],
+		"ID_SPEEDPer": [0,0,0,0,0,0,2,3,4,5,6,7,8,9,10,11,12,13,20,25,30,35,38,41,44,48,52,56,60,64,66,68,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,70,71,71,71,71,71,71,71,71,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,69,69,68,67,66,65.4,64.6,63.8,63,62.2,61.4,60.6,59.8,59,58.2,57.4,56.6,55.8,55,45,35,35,35,35,35,35,25,15,10,8,6,4,0],
+		"HeaterPer": [0,0,0,5,6,7,8,9,10,11,12,13,14,15,20,25,30,35,40,45,50,55,60,65,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,71,72,73,74,75,76,77,77,77,77,77,77,75,73,71,70,70,70,70,70,70,70,70,72,71,70,70,70,70,70,70,70,70,68,70,70,70,70,70,69,68,67,66,65,64,63,64,65,65,65,65,65,65,65,64,63,62,61,60,59,58,57,56,55,54,53,52,51,50,49,48,47,44,35,25,0,0,0,0,0,0,0,0,0,0,0],
+		"time":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130]
+		}
 //console.log(dataJson);
 
 var x = 10, y = 50;
@@ -480,7 +499,9 @@ lsLineGreenSen4.attr({"fill":"50-#929695-#fff"});
 		    " A" + rx + " " + ry +                  // Arc parameters: radii
 		    " 0 0 1 " + (cx + rx) + " " + cy        // End point of the arc (rightmost point of the ellipse)
 		).attr({  fill: "90-#e5d0b7-#9c9992", stroke: "none"});
-
+       
+       
+       
       var sprikRect = paper.rect((x+566.5),(y+155.3),25,10).attr({  fill: "#292926", stroke: "none"});                              
       var sprikLine = paper.path("M"+(x+569)+" "+(y+165)+" l 0 20 l 20 0 l 0 -20 ")                              
        .attr({  fill: "50-#8f8d89-#d4d4d4", stroke: "#6e6e6d"});
@@ -772,14 +793,14 @@ var ntUnit = paper.text(x+890,y+218.6," mBar ").attr({"font-size":18,"fill":"#0a
 var idFanValTxt = paper.text(x+1090,y+423,"0").attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
 var idUnit = paper.text(x+1136,y+423," % ").attr({"font-size":18,"fill":"#0a4cf2","font-weight":"bold"});
  
-function iterateTT01() {
+ function iterateTT01() {
 // Hide initial text
 
 	
 // Loop over the TT01 array
 for (let i = 0; i < dataJson.TT01.length; i++) {
 
-	 setTimeout(() => {
+	 timeoutId = setTimeout(() => {
 
      tt01ValTxt.remove();
      tt02ValTxt.remove();
@@ -807,15 +828,6 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
    heaterValTxt = paper.text(x+335,y+253.5,dataJson.HeaterPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
  ntValTxt = paper.text(x+830,y+218.6,dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
 
-   
-//   if(dataJson.NT[i] > 0){ 
-//	$("#nt").text("-"+dataJson.NT[i]);
-//   ntValTxt = paper.text(x+830,y+218.6,"-"+dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
-//   }else{
-//	$("#nt").text(dataJson.NT[i]);
-//    ntValTxt = paper.text(x+830,y+218.6,dataJson.NT[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
-//
-//   }
    idFanValTxt = paper.text(x+1090,y+423,dataJson.ID_SPEEDPer[i]).attr({"font-size":18,"font-family":"digital-clock-font","fill":"#0af25f","font-weight":"bold"});
       
        if (i === 15) {
@@ -858,12 +870,99 @@ for (let i = 0; i < dataJson.TT01.length; i++) {
       setTimeout(() => toggleSensor("sensor5", "green"));
    }
    
+  tt01Timeouts.push(timeoutId);
   
 }, i*(time*2.5)); // Delay increases with each iteration - later 2500 final
 
 	
 }
 }
+ 
+ 
+ 
+//function iterateTT01() {
+//  // Hide initial text if needed
+//
+//  for (let i = 0; i < dataJson.TT01.length; i++) {
+//    // Use an IIFE to capture 'i' correctly
+//    (function(index) {
+//       timeoutId = setTimeout(() => {
+//        // Clear previous values
+//        tt01ValTxt.remove();
+//        tt02ValTxt.remove();
+//        p1MotorValTxt.remove();
+//        fdFanValTxt.remove();
+//        ftValTxt.remove();
+//        heaterValTxt.remove();
+//        ntValTxt.remove();
+//        idFanValTxt.remove();
+//
+//        // Update values
+//        $("#ft").text(dataJson.FT[index]);
+//        $("#tt1").text(dataJson.TT01[index]);
+//        $("#tt2").text(dataJson.TT02[index]);
+//        $("#nt").text(dataJson.NT[index]);
+//        $("#hf").text(dataJson.HeaterPer[index]);
+//        $("#pump").text(dataJson.P1_SPEED[index]);
+//        $("#fdfan").text(dataJson.FD_SPEEDPer[index]);
+//        $("#idfan").text(dataJson.ID_SPEEDPer[index]);
+//
+//        // Recreate text
+//        tt01ValTxt = paper.text(x + 439, y + 133.5, dataJson.TT01[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        tt02ValTxt = paper.text(x + 718, y + 284, dataJson.TT02[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        p1MotorValTxt = paper.text(x + 174, y + 273.5, dataJson.P1_SPEED[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        fdFanValTxt = paper.text(x + 193, y + 475, dataJson.FD_SPEEDPer[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        ftValTxt = paper.text(x + 342.5, y + 456, dataJson.FT[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        heaterValTxt = paper.text(x + 335, y + 253.5, dataJson.HeaterPer[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        ntValTxt = paper.text(x + 830, y + 218.6, dataJson.NT[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//        idFanValTxt = paper.text(x + 1090, y + 423, dataJson.ID_SPEEDPer[index]).attr({"font-size": 18,    "font-family": "digital-clock-font",
+//    "fill": "#0af25f", "font-weight": "bold" });
+//
+//        // Trigger actions based on step
+//        if (index === 15) {
+//          tt01Timeouts.push(setTimeout(() => afterSprayDryer(), time));
+//        }
+//
+//        if (index === 45) {
+//          waterAnimate();
+//        }
+//
+//        if (index === 118) {
+//          motorGreen_img.remove();
+//          motorOff_img = paper.image("images/motorRed.png", (x + 176), (y + 205), 30, 30).toFront();
+//          animateMilkToWhite();
+//          stopAnimation();
+//          stopAnimation1();
+//          heaterRect.toFront();
+//          heaterRect.animate({ "fill": "#d1b0b0", "opacity": 1 }, time * 10);
+//        }
+//
+//        if (index >= 121 && index < 129 && incFlg === 1) {
+//          stopProcessInLoop();
+//        }
+//
+//        // Sensor toggle based on TT01 value
+//        if (dataJson.TT01[index] > 134) {
+//          tt01Timeouts.push(setTimeout(() => toggleSensor("sensor5", "red")));
+//        } else {
+//          tt01Timeouts.push(setTimeout(() => toggleSensor("sensor5", "green")));
+//        }
+//
+//      }, index * (time * 2.5));
+//
+//      // Save this timeout so we can cancel later
+//      tt01Timeouts.push(timeoutId);
+//    })(i); // IIFE with 'i'
+//  }
+//}
+
 
 var incFlg = 1;
 
@@ -960,6 +1059,8 @@ function stopProcessInLoop(){
 					       onFan_img.remove();
 						  offFan_img = paper.image("images/offMotor.png", (x + 170), (y + 335), 50, 30).toFront();
                                     stopRotation();                  
+                                     
+                                   
                                                   
                                                   setTimeout(() => {
                                                   animateAirRemove();
@@ -967,19 +1068,26 @@ function stopProcessInLoop(){
                                                       setTimeout(() => {
 																animateToOriginal(0);
 																 setTimeout(() => {
+																	
 																afterSprayDryerRemove();
-																
+																sprayOutline.attr({  fill: "90-#e5d0b7-#9c9992", stroke: "none"});
 																setTimeout(() => {
+																	
+															sprayOutline.attr({  fill: "90-#e5d0b7-#9c9992", stroke: "none"});		
+																	
 																 offFan_on.remove();
                        offFan_img1 = paper.image("images/offMotor.png", (x + 1080), (y + 287), 50, 30).toFront();
                       											shOff.toFront(); 	
                       											$("#datasheet,#graph,#btnResult").prop("disabled",false); 
                       											$("#reset").prop("disabled",false);
-                      											$("#startBtn").prop("disabled",true); 				
+                      											$("#startBtn").prop("disabled",true); 
+//                      											 setTimeout(() => {
+//                      											sprayOutline.attr({  fill: "90-#e5d0b7-#9c9992", stroke: "none"});
+//                      										}, time * 100);
 														 }, time * 2); 	
 																 }, time ); 
                                                      }, time ); 
-                                                     }, time);   
+                                                     }, time); //till here  
                                                    }, time );  
                                                     
                                                 }, time ); // Delay for final valve recreation
@@ -1090,7 +1198,7 @@ if (step < 100) {
  var offFan_on;
 
  document.getElementById("startBtn").addEventListener("click", function () {
-	 
+	updateCounter(); 
 	 
 //	 startTimer();
 //	  updateCounter();
@@ -1115,10 +1223,10 @@ if (step < 100) {
 		 
 		  +' <div class="panel">'
 			 +' <h5>Set Simulation Time</h5>'
-			 +' <div class="form-check form-check-inline">'
-			 +'   <input class="form-check-input" type="radio" name="plantTime" id="twoMinutes" value="300">'
-			 +'   <label class="form-check-label radio-label" for="twoMinutes">2 min</label>'
-			 +'  </div>'
+//			 +' <div class="form-check form-check-inline">'
+//			 +'   <input class="form-check-input" type="radio" name="plantTime" id="twoMinutes" value="300">'
+//			 +'   <label class="form-check-label radio-label" for="twoMinutes">2 min</label>'
+//			 +'  </div>'
 		  +'  <div class="form-check form-check-inline">'
 		  +'    <input class="form-check-input" type="radio" name="plantTime" id="threeMinutes" value="500">'
 		  +'    <label class="form-check-label radio-label" for="threeMinutes">3 min</label>'
@@ -1150,7 +1258,7 @@ if (step < 100) {
 	            'color': '#0c55a3'               // Text color
 	        });
 
-  $("#reset").prop("disabled",false);
+  $("#reset").prop("disabled",true);
   $("#startBtn").prop("disabled",true);
   $("#datasheet").prop("disabled",true);
   // Stop any ongoing animations or timers
@@ -1982,6 +2090,7 @@ if (step < 100) {
 }
 }
 
+
 //Helper function to mix two colors based on a ratio
 function mixColors(color1, color2, ratio) {
 const rgb1 = hexToRgb(color1);
@@ -2105,6 +2214,7 @@ let interval = setInterval(() => {
 
 function stopAnimation() {
 isAnimating = false;
+
 }
 
 
