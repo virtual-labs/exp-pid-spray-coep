@@ -274,56 +274,27 @@ function spryerDryermimicDiagram()
 
 //	console.log("pd : " + plantData);
 
-var w = 1250;
-var h = 800;
+
 var x = 20, y = 55;
 //$("#diagram").html("");
 // Get the dimensions of the window
-		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
 		
-		// Define the desired virtual canvas size
-		var virtualWidth = 1500;
-		var virtualHeight = 1000;
-		
-		// Create the Raphael canvas
-		var paper = new Raphael(document.getElementById('diagram'), '100%', '100%');
-		
-		// Set the viewBox to scale content dynamically
-		paper.setViewBox(0, 0, virtualWidth, virtualHeight, true);
-		
-		// Detect device pixel ratio
-		var scaleFactor = window.devicePixelRatio || 1;
-		
-		// Define scale adjustment based on screen scaling
-		var scale;
-		if (scaleFactor === 1) {
-		    // 100% scaling
-		   scale = 1 * 1.1 / scaleFactor;
-		} else if (scaleFactor > 1 && scaleFactor <= 1.25) {
-		    // 125% scaling
-		    scale = 1 * 1.4 / scaleFactor; // Adjust as per your requirement
-		} else {
-		    // Other scaling (e.g., 150%, etc.)
-		    scale = 1 / scaleFactor; // Default adjustment
-		}
-		
-		// Apply the scale to the canvas using transform
-		paper.canvas.setAttribute('style', `transform: scale(${scale}); transform-origin: 0 0;`);
-		
-		// Ensure the canvas matches the screen dimensions
-		paper.setSize('100%', '100%');
 
-//if ($(window).width() < 500) {
-//	width = $(this).width();
-//	paper = new Raphael(document.getElementById('diagram'), '100%', '100%');
-//	paper.setViewBox(0, 0, w, h, true);
-//	paper.setSize('94%', '100%');
-//} else {
-//	paper = new Raphael(document.getElementById('diagram'), '100%', '100%');
-//	paper.setViewBox(0, 0, w, h, true);
-//	paper.setSize('94%', '100%');
-//}
+var w = 1300;
+	var h = 1000;
+$("#diagram").html("");
+	var width = $(window).width();
+ 
+	if ($(window).width() < 500) {
+		width = $(this).width();
+		paper = new Raphael(document.getElementById('diagram'), '100%', '100%');
+		paper.setViewBox(0, 0, w, h, true);
+		paper.setSize('90%', '90%');
+	} else {
+		paper = new Raphael(document.getElementById('diagram'), '100%', '100%');
+		paper.setViewBox(0, 0, w, h, true);
+		paper.setSize('90%', '90%');
+	}
 
 		 dataJson = {
 		"TT01": [22,22,22,22,22,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,45,50,55,60,70,80,90,100,110,120,120,120,120,120,120,120,120,120,120,120,120,119,118,117,115,113,110,112,114,116,118,120,122,124,126,128,130,130,130,130,130,130,130,129,128,129,130,130,130,130,130,130,130,132,131,130,130,130,130,131,132,133,134,135,134,135,134,133,132,131,130,130,130,131,132,133,132,131,131,131,131,130,130,130,130,130,130,130,130,131,132,132,131,132,133,132,130,125,110,100,90,80,75,70,65,62,61],
