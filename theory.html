@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'COEP',
+        'phase': 'Testing',
+        'expName': 'DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT',
+        'expShortName': 'pid-spray'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="pid-spray">
+    	<meta name="developer-institute" content="COEP">
+    	<meta name="learning-unit" content="DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT">
+    	<meta name="task-name" content="Theory">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="pid-spray" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;COEP&quot;,&quot;expname&quot;:&quot;DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2  current-item ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2 ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="simulation.html" class="p-2 ">
+                                      Simulation
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2  current-item ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2 ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="simulation.html" class="p-2 ">
+                        Simulation
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="design-and-develop-a-p--i-d-for-spray-drying-pilot-plant">Design and develop a P &amp; I D for Spray drying pilot plant</h2>
+          
+            </div>
+              <h2 id="theory">Theory</h2>
+          <p>The theory covers basic aspects about the design and running of spray dryer pilot plant. 
+          A spray dryer pilot plant is a small-scale facility designed to test and optimize the spray drying process for various products, such as food,
+          pharmaceuticals, and chemicals. The pilot plant is a scaled-down version of a commercial spray dryer, allowing for the development and refinement 
+          of new products, processes, and formulations in a controlled and cost-effective environment.</p>
+          <h4 id="design-aspects">Design Aspects:</h4>
+          <p>Layout and Configuration: The pilot plant is typically designed as a compact, modular unit with a footprint of around 100-200 square feet. The layout
+          is optimized for ease of operation, maintenance, and cleaning.</p>
+          <h4 id="drying-chamber">Drying Chamber:</h4>
+          <p>The heart of the pilot plant is the drying chamber, where the spray drying process takes place. The chamber is designed to accommodate various spray
+          dryer configurations, including co-current, counter-current and mixed flow arrangements.</p>
+          <h4 id="atomization-system">Atomization System:</h4>
+          <p>The atomization system is responsible for breaking down the liquid feed into a spray of droplets. The pilot plant may feature different atomization 
+          technologies, such as two-fluid nozzles, rotary atomizers, or ultrasonic atomizers.</p>
+          <h4 id="heating-and-cooling-systems">Heating and Cooling Systems:</h4>
+          <p>The pilot plant is equipped with heating and cooling systems to control the temperature and humidity of the drying process. These systems may include
+           heat exchangers, steam generators, and chillers.</p>
+          <h4 id="powder-collection-and-handling">Powder Collection and Handling:</h4>
+          <p>The pilot plant features a powder collection system, which may include cyclones, bag filters, or electrostatic precipitators. The collected powder
+          is then conveyed to a storage vessel or packaging system.</p>
+          <h3 id="development-aspects">Development Aspects:</h3>
+          <h4 id="process-development">Process Development:</h4>
+          <p>The pilot plant is used to develop and optimize spray drying processes for new products or formulations. This involves testing different operating
+          conditions, feed rates, and atomization settings to achieve the desired product characteristics.</p>
+          <h4 id="scale-up">Scale-Up:</h4>
+          <p>The pilot plant serves as a stepping stone for scaling up the spray drying process to commercial production levels. Data generated from the pilot
+          plant is used to design and optimize larger-scale spray dryers.</p>
+          <h4 id="product-development">Product Development:</h4>
+          <p>The pilot plant is used to develop new products or improve existing ones by testing different formulations, ingredients, and processing conditions.</p>
+          <h4 id="fully-automatic-operation">Fully Automatic Operation:</h4>
+          <h4 id="plc-based-control-system">PLC-Based Control System:</h4>
+          <p>The pilot plant is equipped with a programmable logic controller (PLC) that automates the spray drying process, ensuring consistent and reproducible results.</p>
+          <h4 id="sensor-and-monitoring-systems">Sensor and Monitoring Systems:</h4>
+          <p>The pilot plant features a range of sensors and monitoring systems to track process parameters, such as temperature, humidity, pressure, and flow rates.</p>
+          <h4 id="automated-feed-and-discharge-systems">Automated Feed and Discharge Systems:</h4>
+          <p>The pilot plant is equipped with automated feed systems for the liquid feed and powder discharge systems for the dried product.</p>
+          <h4 id="data-acquisition-and-analysis">Data Acquisition and Analysis:</h4>
+          <p>The pilot plant is connected to a data acquisition system that collects and analyzes process data, providing insights into the spray drying process
+          and product characteristics.</p>
+          <h3 id="benefits-of-a-spray-dryer-pilot-plant">Benefits of a Spray Dryer Pilot Plant:</h3>
+          <h4 id="cost-effective">Cost-Effective:</h4>
+          <p>The pilot plant offers a cost-effective way to develop and test new products and processes, reducing the risk of scaling up to commercial production.</p>
+          <h4 id="flexibility">Flexibility:</h4>
+          <p>The pilot plant can be easily modified to accommodate different products, formulations, and processing conditions.</p>
+          <h4 id="improved-product-quality">Improved Product Quality:</h4>
+          <p>The pilot plant enables the development of high-quality products with consistent characteristics, ensuring customer satisfaction and loyalty.</p>
+          <h4 id="increased-efficiency">Increased Efficiency:</h4>
+          <p>The fully automatic operation of the pilot plant minimizes manual intervention, reducing labor costs and improving overall efficiency.
+          By understanding these aspects of a spray dryer pilot plant, you can appreciate the importance of this facility in the development and optimization of spray 
+          drying processes for various industries.</p>
+          <h4 id="cost-effective-1">Cost-Effective:</h4>
+          <p>The pilot plant offers a cost-effective way to develop and test new products and processes, reducing the risk of scaling up to commercial production.</p>
+          <h4 id="flexibility-1">Flexibility:</h4>
+          <p>The pilot plant can be easily modified to accommodate different products, formulations, and processing conditions.</p>
+          <h4 id="improved-product-quality-1">Improved Product Quality:</h4>
+          <p>The pilot plant enables the development of high-quality products with consistent characteristics, ensuring customer satisfaction and loyalty.</p>
+          <h4 id="increased-efficiency-1">Increased Efficiency:</h4>
+          <p>The fully automatic operation of the pilot plant minimizes manual intervention, reducing labor costs and improving overall efficiency.
+          By understanding these aspects of a spray dryer pilot plant, you can appreciate the importance of this facility in the development and optimization
+           of spray drying processes for various industries.</p>
+          <h4 id="spray-drying-consists-of-three-process-stages">Spray drying consists of three process stages:</h4>
+          <ul>
+          <li> Atomization</li>
+          <li>Spray-air mixing and moisture evaporation</li>
+          </ul>
+          <h4 id="product-recovery">Product recovery</h4>
+          <p>Each stage is carried out according to the dryer design and operation and together with the physical and chemical properties of the feed determines the 
+          characteristics of the final product.</p>
+          <p><img src="images/Pipingdiagram_spray.png" alt="*Spray_dryer*"></p>
+          <h4 id="atomization">Atomization:</h4>
+          <p>Atomization is the most important operation in the spray drying process. The type of atomizer not only determines the energy required to form the spray
+           but also the size and size distribution of the drops and their trajectory and speed, on which the final particle size depends. The chamber design is also
+           influenced by the choice of the atomizer. The drop size establishes the heat transfer surface available and thus the drying rate. 
+          Three general types of atomizers are available. These are </p>
+          <ul>
+          <li>  Rotary wheel atomizers, </li>
+          <li>   Pressure nozzle single fluid atomizers, and</li>
+          <li>   Pneumatic two fluid nozzles.</li>
+          </ul>
+          <h4 id="ultrasonic-automizers-are-also-used-in-some-special-applications">Ultrasonic automizers are also used in some special applications.</h4>
+          <p><img src="images/Atomizer.png" alt="*Spray_dryer*"></p>
+          <h4 id="spray-air-mixing">Spray-Air Mixing</h4>
+          <p>There are three basic types of spray drying processes depending on air-droplet contact systems
+          as follows:</p>
+          <h4 id="co-current-flow-">Co-current Flow :</h4>
+          <p>Co-current contact occurs when the droplets fall down the chamber with the air owing in the same direction. It is the most common system with both
+           wheel and nozzle atomization.The droplets come into contact with the hot drying air when they are the most moist. The final product temperature is
+           lower than the inlet air temperature. This type is of dryingcommonly used for smaller particle sizes ranging from 40_m to 60_m diameter. 
+           Generalexamples are milk powder, orange juice powder, several pharmaceutical drugs etc.</p>
+          <p><img src="images/Co-current.png" alt="*Spray_dryer*"></p>
+          <h4 id="counter-current-flow">Counter-current Flow:</h4>
+          <p>Counter-current contact is achieved when the drying air flows in opposite direction to the falling droplets. It is used for more heat sensitive materials
+          that require coarse particles or special porosity or high bulk density. Nozzle atomization is usually used. The material is sprayed in the opposite direction
+          of hot air. The hot air flows upwards and the product falls through increasingly hot air into the collection tray. The residual moisture is eliminated and 
+          the product becomes very hot. This method is suitable only for thermally stable products. The final product temperature is higher than that of the exit air.
+          This type is of drying commonly used for quite larger particle sizes ranging from 400_m to 600_m diameter. General examples are tea powder and some
+          pharmaceutical drugs etc.</p>
+          <p><img src="images/Counter_color_flow.JPG" alt="*Spray_dryer*"></p>
+          <h4 id="rotary">Rotary</h4>
+          <p>In Rotary Disk type atomizer the material to be sprayed flows into a high speed rotating atomizing disk and is converted to a _ne mist. 
+          The drying air flows in the same direction. The product is treated just as in the co-current flow method. This type is of drying commonly used for
+          larger particle sizes ranging from 1 to 5 mm diameter granular products like detergent powder, fertilizers etc.</p>
+          <p><img src="images/rotary.png" alt="*Spray_dryer*"></p>
+          <h4 id="product-recovery-1">Product Recovery</h4>
+          <p>The outlet air from drying chamber contains fine product particles that need to be recovered.
+          This is possible in three different technologies,</p>
+          <ul>
+          <li>Cyclones</li>
+          <li>Venturi wet scrubbers</li>
+          <li>Bag filters</li>
+          </ul>
+          <p>Or the combinations of these three are also possible, depending on authority requirements and/or use of the recovered product. In this project we are 
+          using combination of cyclone and bag filter. This is a two point collection system in which the dry powder is collected at two locations. First is at
+          the bottom of the cyclone separator and the other is at bottom of bag filter. The particle size collected at cyclone bottom is larger as compared to 
+          the particles at bag filter. Actually the powder-air separation is done at bag filter so the particles collected are fine. The exhaust air is then 
+          removed by an ID Fan.</p>
+          <p><img src="images/P&amp;Idiagram_spray.png" alt="*Spray_dryer*"></p>
+          <h4 id="design-specifications">Design Specifications</h4>
+          <p>Following are the design specifications for the lab scale spray dryer which we have calculated from above mentioned steps. Powder Collection method and
+          material of construction (MOC) decided based on the clients requirements.</p>
+          <table>
+          <thead>
+          <tr>
+          <th><strong>Parameter</strong></th>
+          <th><strong>Notation</strong></th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td>Water evaporation capacity</td>
+          <td>5 Kg/hr</td>
+          </tr>
+          <tr>
+          <td>Feed rate with 20-30% solid content (max 50%)</td>
+          <td>5-10 Kg/hr</td>
+          </tr>
+          <tr>
+          <td>Powder rate (2-5% moisture content)</td>
+          <td>3-5 Kg/hr</td>
+          </tr>
+          <tr>
+          <td>Inlet temperature</td>
+          <td>180 (max 220) deg C</td>
+          </tr>
+          <tr>
+          <td>Outlet temperature</td>
+          <td>80 deg C</td>
+          </tr>
+          <tr>
+          <td>Flow between spray and hot gas</td>
+          <td>Pressure and two fluid nozzle systems</td>
+          </tr>
+          <tr>
+          <td>Heat source and heating method</td>
+          <td>Electric air heater</td>
+          </tr>
+          <tr>
+          <td>Method of powder collection</td>
+          <td>Under the cyclone and chamber</td>
+          </tr>
+          <tr>
+          <td>Material of construction</td>
+          <td>SS AISI 316 / 304 Original 2B finished</td>
+          </tr>
+          <tr>
+          <td>Atmospheric pressure</td>
+          <td>760 mm Hg</td>
+          </tr>
+          <tr>
+          <td>Location of installation</td>
+          <td>Indoor</td>
+          </tr>
+          </tbody></table>
+          <p><img src="images/Animation_Dryer.png" alt="*Spray_dryer*"></p>
+          <p><img src="images/Spray_Dryer.png" alt="*Spray_dryer*"></p>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;COEP&quot;,&quot;expname&quot;:&quot;DESIGN AND DEVELOP A P &amp; I D FOR SPRAY DRYING PILOT PLANT&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-pid-spray-coep/plugins/svc-rating/index.js"></script><script type="module" src="/exp-pid-spray-coep/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>
