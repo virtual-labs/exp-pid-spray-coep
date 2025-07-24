@@ -1,0 +1,146 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary purpose of a spray dryer pilot plant?",
+      "answers": {
+         "a": "To produce large quantities of powder for commercial sale",
+        "b": "To develop new powder formulations for pharmaceutical applications",
+        "c": "To test and optimize spray drying conditions for a specific product",
+        "d": "To train operators on spray drying equipment",
+		"e": "To generate revenue through contract manufacturing"
+		
+      },
+      
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the main advantage of automating a spray dryer pilot plant?",
+      "answers": {
+        "a": "Reduced labor costs",
+        "b": "Increased product yield",
+        "c": "Improved product quality and consistency",
+        "d": "Faster equipment cleaning and maintenance",
+		"e": "Enhanced operator safety"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the typical feedstock used in a spray dryer pilot plant?",
+      "answers": {
+        "a": "Powdered materials",
+        "b": "Liquid solutions or suspensions",
+        "c": "Gas mixtures",
+        "d": "Solid pellets",
+		"e": "Fibrous materials"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	{
+      "question": "What is the primary function of the atomizer in a spray dryer pilot plant?",
+      "answers": {
+        "a": "To heat the feedstock to high temperatures",
+        "b": "To create a fine spray of droplets from the feedstock",
+        "c": "To accelerate the droplet",
+		"d": "To measure the moisture content of the powder"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the purpose of the cyclone separator in a spray dryer pilot plant?",
+      "answers": {
+        "a": "To mix the feedstock with hot air ",
+        "b": "To separate powder particles from the gas stream",
+        "c": "To heat the powder particles to a higher temperature",
+        "d": "To collect and store the final powder product",
+		"e": "To monitor the temperature of the powder"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+  
+  {
+      "question": "What is the advantage of using a pilot plant to test spray drying conditions?",
+      "answers": {
+        "a": "It allows for the production of large quantities of powder",
+        "b": "It provides a cost-effective way to test new product formulations",
+        "c": "It enables the optimization of spray drying conditions on a small scale",
+        "d": "It reduces the need for operator training",
+		"e": "It eliminates the need for safety protocols"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the primary benefit of using automation in a spray dryer pilot plant?",
+      "answers": {
+        "a": "Reduced energy consumption",
+        "b": "Increased product yield",
+        "c": "Improved product quality and consistency",
+        "d": "Faster equipment maintenance and repair",
+		"e": "Enhanced operator safety"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the purpose of the control system in a spray dryer pilot plant?",
+      "answers": {
+        "a": "To monitor the temperature of the powder",
+        "b": "To control the flow rate of the feedstock",
+        "c": "To optimize the spray drying conditions in real-time",
+        "d": "To collect and store data on the spray drying process",
+		"e": "To alert operators to potential safety hazards"
+      },
+     
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the advantage of using a spray dryer pilot plant to develop new powder formulations?",
+      "answers": {
+        "a": "It allows for the production of large quantities of powder",
+        "b": "It provides a cost-effective way to test new product formulations",
+        "c": "It enables the optimization of spray drying conditions for a specific product",
+        "d": "It reduces the need for operator training",
+		"e": "It eliminates the need for safety protocols"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the primary goal of testing a spray dryer pilot plant with full automation?",
+      "answers": {
+        "a": "To produce a large quantity of powder for commercial sale",
+        "b": "To develop a new powder formulation for pharmaceutical applications",
+        "c": "To optimize the spray drying conditions for a specific product",
+        "d": "To train operators on spray drying equipment",
+		"e": "To demonstrate the feasibility of full automation in a spray dryer pilot plant"
+      },
+     
+      "correctAnswer": "e",
+      "difficulty": "beginner"
+    }
+  
+  
+  
+  
+  
+  ]
+}
