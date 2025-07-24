@@ -16,13 +16,13 @@
     {
       "question": "Which of the following is a common application of spray drying?",
       "answers": {
-        "a": "Producing pharmaceutical tablets",
+        "a": "Producing fruit pulp",
         "b": "Manufacturing automotive parts",
         "c": "Drying fruits and vegetables",
         "d": "Producing instant coffee and tea"
       },
      
-      "correctAnswer": "d",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {

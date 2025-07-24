@@ -1,5 +1,5 @@
 ## Aim 
-To automate the spray drying plant as per customer requirements
+To Design and develop a P&I Diagram for the Spray drying pilot plant as per customer requirements
 
 ## Objectives  
  -	To study various process and instruments related to a spray dryer pilot plant
