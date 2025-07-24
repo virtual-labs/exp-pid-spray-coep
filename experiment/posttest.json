@@ -46,9 +46,8 @@
       "answers": {
         "a": "To heat the feedstock to high temperatures",
         "b": "To create a fine spray of droplets from the feedstock",
-        "c": "To create a fine spray of droplets from the feedstock",
-        "d": "To create a fine spray of droplets from the feedstock",
-		"e": "To measure the moisture content of the powder"
+        "c": "To accelerate the droplet",
+		"d": "To measure the moisture content of the powder"
       },
      
       "correctAnswer": "b",

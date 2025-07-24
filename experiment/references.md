@@ -18,10 +18,6 @@
 -	American Society of Mechanical Engineers (ASME). (2019). ASME BPE-2019 : Bioprocessing Equipment. New York : ASME.
 -	International Organization for Standardization (ISO). (2018). ISO 22000 : 2018 : Food Safety Management Systems - Requirements for Any Organization in the Food Chain. Geneva : ISO.
 	
-#### Online Resources :
--	Spray Drying Technology. (n.d.). Spray Drying Basics. Retrieved from https://www.spraydryingtechnology.com/spray-drying-basics/
--	GEA Process Engineering. (n.d.). Spray Drying. Retrieved from https://www.gea.com/en/products/spray-drying/index.jsp
-	
 #### Thesis and Dissertations :
 -	Patel, K. C. (2007). Spray Drying of Milk and Dairy Products : A Study of the Effects of Process Variables on Powder Characteristics. Ph.D. Thesis, University of Auckland, New Zealand.
 -	Chen, X. D. (2008). Spray Drying of Fruit Juices : A Study of the Effects of Process Variables on Powder Characteristics and Stability. Master's Thesis, University of Queensland, Australia.AC
